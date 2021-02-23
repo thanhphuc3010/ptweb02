@@ -10,11 +10,12 @@
     --hover-primary-color: #3d8c40;
     --second-color:#337ab7;
     --hover-second-color:#286090;
+    --border-color: #dcdfe8;
 
     /* FONT SIZE */
 
     --primary-font: Helvetica, Arial, sans-serif;
-    --normal-font-size: 1.4rem;
+    --normal-font-size: 1.6rem;
     --title-font-size: 1.8rem;
     --big-font-size: 2rem;  
 
@@ -43,4 +44,8 @@ html {
     color: var(--white-color);
     border: none;
     display: block;
+}
+
+a {
+    text-decoration: none;
 }
