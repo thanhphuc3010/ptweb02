@@ -13,36 +13,152 @@
     <div class="wrapper">
         <!-- Lưới Grid -->
         <header>
-            <div class="navbar">
-                <div class="search">
-                    <form action="#" class="search__box">
-                        <a class="search__link" href="#"><i class="fas fa-search search__icon"></i></a>
-                        <input type="text" class="search__input" placeholder="Search here...">
-                    </form>
-                </div>
-                <div class="account">
-                    <ul class="account__list">
-                        <li class="account__items language">
-                            <a class="language__link" href="#">
-                                <img src="./vietnam_flag.jpg" alt="vietnam flag">
-                                Vi
-                            </a>
-                        </li>
-                        <li class="account__items user__icon "><i class="far fa-envelope"></i></li>
-                        <li class="account__items user__icon "><i class="far fa-bell"></i></li>
-                        <li class="account__items">
-                            <a href="#" class="account__link">
-                                <img class="account__img"src="./user.png" alt="user">
-                            </a>
-                        </li>
-                    </ul>
+            <div class="grid">
+                <div class="navbar">
+                    <div class="search">
+                        <form action="#" class="search__box">
+                            <a class="search__link" href="#"><i class="fas fa-search search__icon"></i></a>
+                            <input type="text" class="search__input" placeholder="Search here...">
+                        </form>
+                    </div>
+                    <div class="account">
+                        <ul class="account__list">
+                            <li class="account__items language">
+                                <a class="language__link" href="#">
+                                    <img src="./vietnam_flag.jpg" alt="vietnam flag">
+                                    Vi
+                                </a>
+                            </li>
+                            <li class="account__items user__icon "><i class="far fa-envelope"></i></li>
+                            <li class="account__items user__icon "><i class="far fa-bell"></i></li>
+                            <li class="account__items">
+                                <a href="#" class="account__link">
+                                    <img class="account__img"src="./user.png" alt="user">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </header>
         <!-- Main -->
         <div class="app">
             <div class="grid">
-                <h1>Phạm Thanh Phúc</h1>
+                <div class="container">
+                    <div class="items">
+                        <div class="items__infor">
+                            <h1 class="items__title">
+                                Product List
+                            </h1>
+                            <p class="items__detail">
+                                The product list effectively dictates product presentation and provides space to list your products and offering in the most appealing way.
+                            </p>
+                        </div>
+
+                        <button class="items__add">
+                            <i class="fas fa-plus items__icon "></i>
+                            <p>Add Item</p>
+                        </button>
+                    </div>
+
+                    <div class="content">
+                        <table class="data">
+                            <thead class="data__title">
+                                <tr class="table__title">
+                                    <th class="col_1">Mã sản phẩm</th>
+                                    <th class="col_2">Hình ảnh</th>
+                                    <th class="col_3">Tên sản phẩm</th>
+                                    <th class="col_4">Mô tả</th>
+                                    <th class="col_5 ">Số lượng</th>
+                                    <th class="col_6">Đang đặt</th>
+                                    <th class="col_7">Giá bán</th>
+                                    <th class="col_3">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody class="data_content">
+                                <tr class="table__content">
+                                    <td class="">ITEM00001</td>
+                                    <td class="items__img"> 
+                                        <div class="items__image">
+                                            <img src="./iphone12.jpg" alt="">
+                                        </div>
+                                    </td>
+                                    <td class="">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
+                                    <td>
+                                        <p class="items__decription">
+                                            iPhone 12 Pro Max 512GB - đẳng cấp từ tên gọi đến từng chi tiết. Ngay từ khi chỉ là tin đồn thì chiếc smartphone này đã làm đứng ngồi không yên bao “fan cứng” nhà Apple.
+                                        </p>
+                                    </td>
+                                    <td class="items__quantity">20</td>
+                                    <td class="items__orders">40</td>
+                                    <td class="items__price">33000000</td>
+                                    <td>
+                                        <div class="btn">
+                                            <!-- Nút chức năng xem -->
+                                            <div class="btn__view">
+                                                <a href="#" class="view__link">
+                                                    <i class="btn_icon far fa-eye"></i>
+                                                </a>
+                                            </div>
+                                            <!-- Nút chức năng sửa  -->
+                                            <div class="btn__edit">
+                                                <a href="#" class="edit__link">
+                                                    <i class="btn_icon fas fa-pencil-alt"></i>
+                                                </a>
+                                            </div>
+                                            <!-- Nút chức năng xoá -->
+                                            <div class="btn__delete">
+                                                <a href="#" class="delete__link">
+                                                    <i class="btn_icon far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="table__content">
+                                    <td class="">ITEM00001</td>
+                                    <td class="items__img"> 
+                                        <div class="items__image">
+                                            <img src="./iphone12.jpg" alt="">
+                                        </div>
+                                    </td>
+                                    <td class="">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
+                                    <td>
+                                        <p class="items__decription">
+                                            iPhone 12 Pro Max 512GB - đẳng cấp từ tên gọi đến từng chi tiết. Ngay từ khi chỉ là tin đồn thì chiếc smartphone này đã làm đứng ngồi không yên bao “fan cứng” nhà Apple.
+                                        </p>
+                                    </td>
+                                    <td class="items__quantity">20</td>
+                                    <td class="items__orders">40</td>
+                                    <td class="items__price">33000000</td>
+                                    <td>
+                                        <div class="btn">
+                                            <!-- Nút chức năng xem -->
+                                            <div class="btn__view">
+                                                <a href="#" class="view__link">
+                                                    <i class="btn_icon far fa-eye"></i>
+                                                </a>
+                                            </div>
+                                            <!-- Nút chức năng sửa  -->
+                                            <div class="btn__edit">
+                                                <a href="#" class="edit__link">
+                                                    <i class="btn_icon fas fa-pencil-alt"></i>
+                                                </a>
+                                            </div>
+                                            <!-- Nút chức năng xoá -->
+                                            <div class="btn__delete">
+                                                <a href="#" class="delete__link">
+                                                    <i class="btn_icon far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
