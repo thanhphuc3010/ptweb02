@@ -51,6 +51,7 @@ header {
 }
 
 .account {
+    position: relative;
     font-size: var(--normal-font-size);
     height: 100%;
 }
@@ -76,7 +77,7 @@ header {
     margin-left: 20px;
 }
 
-
+/* Style General about language element */
 .language {
     display: flex;
     padding: 0px 20px;
@@ -102,7 +103,42 @@ header {
     font-size: var(--title-font-size);
 }
 
+/* Dropbox Language */
+.dropbox {
+    position: absolute;
+    width: 180px;
+    border: 1px solid var(--border-color);
+    background-color: var(--white-color);
+    border-radius: 8px;
+    left: -106px;
+    top: 60px;
+}
 
+.dropbox__list {
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+}
+
+.dropbox__items {
+
+}
+.dropbox__items:first-child {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropbox__link {
+    line-height: 38px;
+    padding-left: 10px;
+    color: var(--text-color);
+}
+
+.dropbox__link img {
+    width: 16px;
+    height: auto;
+}
+
+
+/* Main section bao gồm title + table + pagination */
 .app {
     padding-top: 20px;
 }
@@ -153,20 +189,24 @@ header {
     padding: 0 20px;
 }
 
+td.items__img {
+
+}
+
+
 .items__img {
-    display: block;
-    text-align: center;
+    border-radius: 5px;
 }
 
 .items__img img {
-    width: 100%;
-    height: 100%;
+    height: 50px;
+    display: block;
     object-fit: cover;
-    padding: 15px;
+    border-radius: 5px;
+    margin: 0 auto;
 }
 
 .items__image {
-    height: 88px;
 }
 
 table{
@@ -255,7 +295,7 @@ td {
 .btn__view {
     width: 32px;
     text-align: center;
-    background-color: #7EE2FF;
+    background-color: #32BDEA;
     border-radius: 5px;
 }
 
@@ -287,4 +327,78 @@ td {
 .delete__link {
     line-height: 32px;
     color: var(--white-color);
+}
+
+
+.footer {
+    padding-top: 20px;
+}
+
+.footer__box {
+    display: flex;
+    height: 68px;
+    margin: 0 30px 10px;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    align-items: center;
+    font-size: var(--normal-font-size);
+}
+
+.footer__detail {
+    display: flex;
+    color: var(--text-color);
+    
+}
+
+.footer__policy {
+    padding: 0 20px;
+}
+
+.policy__link {
+    color: var(--text-color);
+}
+
+.policy__link:hover {
+    color: #32BDEA;
+}
+
+.use__link {
+    color: var(--text-color);
+}
+
+.use__link:hover {
+    color: #32BDEA;
+}
+
+.footer__copyright {
+    padding: 0 20px;
+}
+
+
+
+/* Pagination */
+.pagi {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-size: var(--medium-font-size);
+}
+
+.pagi__item {
+    margin: 0 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    list-style: none;
+}
+
+.pagi__item.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagi__item:hover,
+.pagi__item.is-active {
+    color: var(--hover-color);
 }

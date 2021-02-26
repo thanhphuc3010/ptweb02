@@ -5,17 +5,20 @@
     /* COLOR */
     --white-color: #fff;
     --black-color: #000;
-    --text-color: #333;
+    --text-color: #110a57;
+    --second-text-color: #333;
     --primary-color:#4cb050 ;
     --hover-primary-color: #3d8c40;
     --second-color:#337ab7;
     --hover-second-color:#286090;
     --border-color: #dcdfe8;
+    --hover-color:#32BDEA;
 
     /* FONT SIZE */
 
     --primary-font: Helvetica, Arial, sans-serif;
     --normal-font-size: 1.4rem;
+    --medium-font-size: 1.6rem;
     --title-font-size: 2rem;
     --big-font-size: 2.2rem;  
 
@@ -39,6 +42,10 @@ html {
 
 a {
     text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
 }
 
 .col_1 {
@@ -72,3 +79,4 @@ a {
 .col_8 {
     width: 15%;
 }
+

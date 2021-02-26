@@ -1,3 +1,7 @@
+<?php
+    require_once('./dbconnect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
     <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
     <div class="wrapper">
@@ -37,6 +42,23 @@
                                 </a>
                             </li>
                         </ul>
+                        <!-- Drop_box_Language -->
+                        <div id="dropbox" class="dropbox">
+                            <ul class="dropbox__list">
+                                <li class="dropbox__items">
+                                    <a class="dropbox__link" href="#">
+                                        <img src="./vietnam_flag.jpg" alt="vietnam flag">
+                                        Vietnamese
+                                    </a>
+                                </li>
+                                <li class="dropbox__items">
+                                    <a class="dropbox__link" href="#">
+                                        <img src="./image/england_flag.png" alt="england flag">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,7 +102,7 @@
                                     <td class="">ITEM00001</td>
                                     <td class="items__img"> 
                                         <div class="items__image">
-                                            <img src="./iphone12.jpg" alt="">
+                                            <img src="./image/quantaynam.jpg" alt="">
                                         </div>
                                     </td>
                                     <td class="">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
@@ -94,19 +116,16 @@
                                     <td class="items__price">33000000</td>
                                     <td>
                                         <div class="btn">
-                                            <!-- Nút chức năng xem -->
                                             <div class="btn__view">
                                                 <a href="#" class="view__link">
                                                     <i class="btn_icon far fa-eye"></i>
                                                 </a>
                                             </div>
-                                            <!-- Nút chức năng sửa  -->
                                             <div class="btn__edit">
                                                 <a href="#" class="edit__link">
                                                     <i class="btn_icon fas fa-pencil-alt"></i>
                                                 </a>
                                             </div>
-                                            <!-- Nút chức năng xoá -->
                                             <div class="btn__delete">
                                                 <a href="#" class="delete__link">
                                                     <i class="btn_icon far fa-trash-alt"></i>
@@ -115,53 +134,91 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr class="table__content">
-                                    <td class="">ITEM00001</td>
-                                    <td class="items__img"> 
-                                        <div class="items__image">
-                                            <img src="./iphone12.jpg" alt="">
-                                        </div>
-                                    </td>
-                                    <td class="">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
-                                    <td>
-                                        <p class="items__decription">
-                                            iPhone 12 Pro Max 512GB - đẳng cấp từ tên gọi đến từng chi tiết. Ngay từ khi chỉ là tin đồn thì chiếc smartphone này đã làm đứng ngồi không yên bao “fan cứng” nhà Apple.
-                                        </p>
-                                    </td>
-                                    <td class="items__quantity">20</td>
-                                    <td class="items__orders">40</td>
-                                    <td class="items__price">33000000</td>
-                                    <td>
-                                        <div class="btn">
-                                            <!-- Nút chức năng xem -->
-                                            <div class="btn__view">
-                                                <a href="#" class="view__link">
-                                                    <i class="btn_icon far fa-eye"></i>
-                                                </a>
+                                <!-- <?php
+                                
+                                $query = "SELECT `itemNo`,`image`,`itemName`,`decription`, `qty_available`, `qtyOnOrder`, `price` FROM `items` ";
+                                $result = mysqli_query($DBConnect,$query);
+                                while ($row = mysqli_fetch_row($result)) {
+                                    echo '<tr class="table__content">
+                                        <td class="">'.$row[0].'</td>
+                                        <td class="items__img"> 
+                                            <div class="items__image">
+                                                <img src="'.$row[1].'" alt="">
                                             </div>
-                                            <!-- Nút chức năng sửa  -->
-                                            <div class="btn__edit">
-                                                <a href="#" class="edit__link">
-                                                    <i class="btn_icon fas fa-pencil-alt"></i>
-                                                </a>
+                                        </td>
+                                        <td class="">'.$row[2].'</td>
+                                        <td>
+                                            <p class="items__decription">
+                                            '.$row[3].'
+                                            </p>
+                                        </td>
+                                        <td class="items__quantity">'.$row[4].'</td>
+                                        <td class="items__orders">'.$row[5].'</td>
+                                        <td class="items__price">'.$row[6].'</td>
+                                        <td>
+                                            <div class="btn">
+                                                
+                                                <div class="btn__view">
+                                                    <a href="#" class="view__link">
+                                                        <i class="btn_icon far fa-eye"></i>
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="btn__edit">
+                                                    <a href="#" class="edit__link">
+                                                        <i class="btn_icon fas fa-pencil-alt"></i>
+                                                    </a>
+                                                </div>
+                                                
+                                                <div class="btn__delete">
+                                                    <a href="#" class="delete__link">
+                                                        <i class="btn_icon far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <!-- Nút chức năng xoá -->
-                                            <div class="btn__delete">
-                                                <a href="#" class="delete__link">
-                                                    <i class="btn_icon far fa-trash-alt"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr.>';
+                                }
+                                ?>  -->
                             </tbody>
                         </table>
                     </div>
-
+                    <!-- Pagination -->
+                    <ul class="pagi">
+                            <li class="pagi__item pagi__action pagi__prev is-disabled">
+                            <i class="pagi__icon fal fa-angle-left"></i>
+                            </li>
+                            <li class="pagi__item is-active">1</li>
+                            <li class="pagi__item">2</li>
+                            <li class="pagi__item">3</li>
+                            <li class="pagi__item">4</li>
+                            <li class="pagi__item">5</li>
+                            <li class="pagi__item pagi__action pagi__next">
+                            <i class="pagi__icon fal fa-angle-right"></i>
+                            </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
 
+        <footer class="footer">
+            <div class="grid">
+                <div class="footer__box">
+                    <div class="footer__detail">
+                        <p class="footer__policy">
+                            <a href="#" class="policy__link"> Privacy Policy</a>
+                        </p>
+                        <p class="footer__use">
+                            <a href="#" class="use__link">Terms of Use</a>
+                        </p>
+                    </div>
+                    <div class="footer__copyright">
+                        <p>Copyright &#169; by PTP</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./function.js"></script>
 </body>
 </html>
