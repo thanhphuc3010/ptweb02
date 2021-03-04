@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col l-12 m-12 c-12">
                                     <div class="form-group">
-                                        <textarea disabled rows="6" name="decription" value="<?php echo $row_up['decription'];?>"></textarea>
+                                        <textarea disabled rows="6" name="description"><?php echo $row_up['description'];?></textarea>
                                         <label>Mô tả sản phẩm</label>
                                     </div>
                                 </div>

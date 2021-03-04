@@ -1,6 +1,10 @@
 /* IMPORT FONT FROM GOOGLE FONT */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
+@font-face {
+    font-family: Poppins;
+    src: url('../font/PoppinsVN-400.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
 :root {
     /* COLOR */
     --white-color: #fff;

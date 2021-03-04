@@ -1,8 +1,7 @@
 <?php
-    $sql = "SELECT `itemNo`,`image`,`itemName`,`decription`, `qty_available`, `qtyOnOrder`, `price` FROM `items` ";
+    $sql = "SELECT `itemNo`,`image`,`itemName`, `description`,`qty_available`, `qtyOnOrder`,`price` FROM `items`";
     $query = mysqli_query($connect,$sql);
 ?>
-
     <div class="wrapper">
         <!-- Lưới Grid -->
         <header>
@@ -86,7 +85,7 @@
                                     <th class="col_4">Mô tả</th>
                                     <th class="col_5 ">Số lượng</th>
                                     <th class="col_6">Đang đặt</th>
-                                    <th class="col_7">Giá bán</th>
+                                    <th class="col_7" style="text-align: right">Giá bán</th>
                                     <th class="col_3">Thao tác</th>
                                 </tr>
                             </thead>
@@ -128,9 +127,9 @@
                                     </td>
                                 </tr> -->
                                 <?php
-                                while ($row = mysqli_fetch_row($query)) { ?>
+                                while($row = mysqli_fetch_row($query)){?>
                                         <tr class="table__content">
-                                        <td class=""><?php echo $row[0]; ?> </td>
+                                        <td class="items__id"><?php echo $row[0]; ?> </td>
                                         <td class="items__img"> 
                                             <div class="items__image">
                                                 <img src="image/<?php echo $row[1]; ?>" alt="">
@@ -144,21 +143,21 @@
                                         </td>
                                         <td class="items__quantity"><?php echo $row[4]; ?></td>
                                         <td class="items__orders"><?php echo $row[5]; ?></td>
-                                        <td class="items__price"><?php echo $row[6]; ?></td>
+                                        <td class="items__price"><?php echo number_format($row[6])." VND"; ?></td>
                                         <td>
                                             <div class="btn">
                                                 <div class="btn__view">
-                                                    <a href="index.php?page_layout=view&id=<?php echo $row[0];?>" class="view__link">
+                                                    <a href="./index.php?page_layout=view&id=<?php echo $row[0];?>" class="btn__link">
                                                         <i class="btn_icon far fa-eye"></i>
                                                     </a>
                                                 </div>
                                                 <div class="btn__edit">
-                                                    <a href="index.php?page_layout=edit&id=<?php echo $row[0];?>" class="edit__link">
+                                                    <a href="./index.php?page_layout=edit&id=<?php echo $row[0];?>" class="btn__link">
                                                         <i class="btn_icon fas fa-pencil-alt"></i>
                                                     </a>
                                                 </div>
                                                 <div class="btn__delete">
-                                                    <a onclick="return Del('<?php echo $row[2];?>')" href="index.php?page_layout=delete&id=<?php echo $row[0];?>" class="delete__link">
+                                                    <a onclick="return Del('<?php echo $row[2];?>')" href="./index.php?page_layout=delete&id=<?php echo $row[0];?>" class="btn__link">
                                                         <i class="btn_icon far fa-trash-alt"></i>
                                                     </a>
                                                 </div>

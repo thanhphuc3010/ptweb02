@@ -1,18 +1,16 @@
 <?php
+ob_start();
     if(isset($_POST['submit'])) {
-
         $itemNo = $_POST['itemNo'];
-
         $image = $_FILES['image']['name'];
         $image_tmp = $_FILES['image']['tmp_name'];
-
         $itemName = $_POST['itemName'];
         $otherName= $_POST['otherName'];
         $colorId = $_POST['colorId'];
         $makeId = $_POST['makeId'];
         $qty_available = $_POST['qty_available'];
         $qtyOnOrder = $_POST['qtyOnOrder'];
-        $decription = $_POST['decription'];
+        $description = $_POST['description'];
         $location = $_POST['location'];
         $usefor = $_POST['usefor'];
         $cost = $_POST['cost'];
@@ -20,14 +18,12 @@
         $wholeSalePrice = $_POST['wholeSalePrice'];
         $specialPrice = $_POST['specialPrice'];
         $tax = $_POST['tax'];
-
-        $sql = "INSERT INTO items (itemNo,image,itemName,otherName,colorId,makeId,qty_available,qtyOnOrder,decription,location,usefor,cost,price,wholeSalePrice,specialPrice,tax) VALUES ('$itemNo', '$image', '$itemName', '$otherName', '$colorId', $makeId, $qty_available, $qtyOnOrder, '$decription', '$location', '$usefor', $cost, $price, $wholeSalePrice, $specialPrice, $tax)";
-
+        $sql = "INSERT INTO items (itemNo,image,itemName,otherName,colorId,makeId,qty_available,qtyOnOrder,description ,location,usefor,cost,price,wholeSalePrice,specialPrice,tax) VALUES ('$itemNo', '$image', '$itemName', '$otherName', '$colorId', $makeId, $qty_available, $qtyOnOrder, '$description', '$location', '$usefor', $cost, $price, $wholeSalePrice, $specialPrice, $tax)";
         $query = mysqli_query($connect,$sql);
         move_uploaded_file($image_tmp,'image/'.$image);
-        header('location: index.php?page_layout=list');
+        header('location: ./index.php?page_layout=list');
     }
-
+ob_end_flush();
 ?>
 <div class="wrapper">
     <!-- Lưới Grid -->
@@ -143,7 +139,7 @@
                                 </div>
                                 <div class="col l-12 m-12 c-12">
                                     <div class="form-group">
-                                        <textarea rows="6" name="decription"></textarea>
+                                        <textarea rows="6" name="description"></textarea>
                                         <label>Mô tả sản phẩm</label>
                                     </div>
                                 </div>

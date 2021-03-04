@@ -24,7 +24,7 @@
         $makeId = $_POST['makeId'];
         $qty_available = $_POST['qty_available'];
         $qtyOnOrder = $_POST['qtyOnOrder'];
-        $decription = $_POST['decription'];
+        $description = $_POST['description'];
         $location = $_POST['location'];
         $usefor = $_POST['usefor'];
         $cost = $_POST['cost'];
@@ -33,10 +33,10 @@
         $specialPrice = $_POST['specialPrice'];
         $tax = $_POST['tax'];
 
-        $sql = "UPDATE items SET itemNo='$itemNo', itemName='$itemName', otherName='$otherName', colorId='$colorId', decription='$decription', makeId=$makeId, location='$location', usefor ='$usefor', qty_available=$qty_available, qtyOnOrder=$qtyOnOrder, cost=$cost, price=$price,wholeSalePrice=$wholeSalePrice, specialPrice = specialPrice, tax=$tax, image='$image',updated_date=NOW() WHERE itemNo ='$id'";
+        $sql = "UPDATE items SET itemNo='$itemNo', itemName='$itemName', otherName='$otherName', colorId='$colorId', description='$description', makeId=$makeId, location='$location', usefor ='$usefor', qty_available=$qty_available, qtyOnOrder=$qtyOnOrder, cost=$cost, price=$price,wholeSalePrice=$wholeSalePrice, specialPrice = specialPrice, tax=$tax, image='$image',updated_date=NOW() WHERE itemNo ='$id'";
 
         $query = mysqli_query($connect,$sql);
-        header('location: index.php?page_layout=list');
+        header('location: ./index.php?page_layout=list');
     }
 
 ?>
@@ -106,7 +106,7 @@
                             <form class="row" method="POST" name="items-form" id="items-form" enctype="multipart/form-data">
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="text" name="itemNo" required value="<?php echo $row_up['itemNo'];?>">
+                                        <input readonly type="text" name="itemNo" required value="<?php echo $row_up['itemNo'];?>">
                                         <label>Mã sản phẩm<span>*</span></label>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col l-12 m-12 c-12">
                                     <div class="form-group">
-                                        <textarea rows="6" name="decription" value="<?php echo $row_up['decription'];?>"></textarea>
+                                        <textarea rows="6" name="description"><?php echo $row_up['description'];?></textarea>
                                         <label>Mô tả sản phẩm</label>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
                                         <label>Tỉ lệ thuế<span>*</span></label>
                                     </div>
                                 </div>
-                                <div class="col l-12 m-12 c-12">
+                                <div class="col l-4 m-12 c-12">
                                     <button class = "form__button" type="submit" name="submit">Lưu thông tin sản phẩm</button>
                                 </div>
                             </form>

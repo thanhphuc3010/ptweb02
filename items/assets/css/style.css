@@ -272,7 +272,9 @@ td {
     border-bottom: 1px solid var(--border-color); 
 }
 
-
+.items__id {
+    text-align: center;
+}
 .items__quantity {
     text-align: center;
 }
@@ -313,39 +315,35 @@ td {
 
 .btn__view {
     width: 32px;
+    height: 100%;
     text-align: center;
     background-color: #32BDEA;
     border-radius: 5px;
 }
 
-.view__link {
-    line-height: 32px;
+.btn__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
     color: var(--white-color);
 }
 
 
 .btn__edit {
     width: 32px;
+    height: 100%;
     text-align: center;
     background-color: #78C091;
     border-radius: 5px;
 }
 
-.edit__link {
-    line-height: 32px;
-    color: var(--white-color);
-}
-
 .btn__delete {
     width: 32px;
+    height: 100%;
     text-align: center;
     background-color: #ec4149;
     border-radius: 5px;
-}
-
-.delete__link {
-    line-height: 32px;
-    color: var(--white-color);
 }
 
 
