@@ -2,6 +2,21 @@
     $sql = "SELECT `itemNo`,`image`,`itemName`, `description`,`qty_available`, `qtyOnOrder`,`price` FROM `items`";
     $query = mysqli_query($connect,$sql);
 ?>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Dashboard Items</title>
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=1.0.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head> -->
+<body>
     <div class="wrapper">
         <!-- Lưới Grid -->
         <header>
@@ -76,50 +91,50 @@
                     </div>
 
                     <div class="content">
-                        <table class="data">
+                        <table class="content-table">
                             <thead class="data__title">
                                 <tr class="table__title">
-                                    <th class="col_1">Mã sản phẩm</th>
-                                    <th class="col_2">Hình ảnh</th>
-                                    <th class="col_3">Tên sản phẩm</th>
-                                    <th class="col_4">Mô tả</th>
-                                    <th class="col_5 ">Số lượng</th>
-                                    <th class="col_6">Đang đặt</th>
-                                    <th class="col_7" style="text-align: right">Giá bán</th>
-                                    <th class="col_3">Thao tác</th>
+                                    <th data-label="Mã sản phẩm">Mã sản phẩm</th>
+                                    <th data-label="Hình ảnh" class="col_2">Hình ảnh</th>
+                                    <th data-label="Tên sản phẩm" class="col_3">Tên sản phẩm</th>
+                                    <th data-label="Mô tả" class="col_3">Mô tả</th>
+                                    <th data-label="Số lượng">Số lượng</th>
+                                    <th data-label="Đang đặt">Đang đặt</th>
+                                    <th data-label="Giá bán" class="label__price col_1">Giá bán</th>
+                                    <th data-label="Thao tác">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody class="data_content">
                                 <!-- <tr class="table__content">
-                                    <td class="">ITEM00001</td>
-                                    <td class="items__img"> 
+                                    <td data-label="Mã sản phẩm" class="">ITEM00001</td>
+                                    <td data-label="Hình ảnh" class="items__img"> 
                                         <div class="items__image">
-                                            <img src="./image/quantaynam.jpg" alt="">
+                                            <img src="../image/quantaynam.jpg" alt="">
                                         </div>
                                     </td>
-                                    <td class="">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
-                                    <td>
+                                    <td data-label="Tên sản phẩm">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
+                                    <td data-label="Mô tả">
                                         <p class="items__decription">
                                             iPhone 12 Pro Max 512GB - đẳng cấp từ tên gọi đến từng chi tiết. Ngay từ khi chỉ là tin đồn thì chiếc smartphone này đã làm đứng ngồi không yên bao “fan cứng” nhà Apple.
                                         </p>
                                     </td>
-                                    <td class="items__quantity">20</td>
-                                    <td class="items__orders">40</td>
-                                    <td class="items__price">33000000</td>
-                                    <td>
+                                    <td data-label="Số lượng" class="items__quantity">20</td>
+                                    <td data-label="Đang đặt" class="items__orders">40</td>
+                                    <td data-label="Giá bán" class="items__price">33000000</td>
+                                    <td data-label="Thao tác">
                                         <div class="btn">
                                             <div class="btn__view">
-                                                <a href="#" class="view__link">
+                                                <a href="#" class="btn__link">
                                                     <i class="btn_icon far fa-eye"></i>
                                                 </a>
                                             </div>
                                             <div class="btn__edit">
-                                                <a href="#" class="edit__link">
+                                                <a href="#" class="btn__link">
                                                     <i class="btn_icon fas fa-pencil-alt"></i>
                                                 </a>
                                             </div>
                                             <div class="btn__delete">
-                                                <a href="#" class="delete__link">
+                                                <a href="#" class="btn__link">
                                                     <i class="btn_icon far fa-trash-alt"></i>
                                                 </a>
                                             </div>
@@ -128,23 +143,23 @@
                                 </tr> -->
                                 <?php
                                 while($row = mysqli_fetch_row($query)){?>
-                                        <tr class="table__content">
-                                        <td class="items__id"><?php echo $row[0]; ?> </td>
-                                        <td class="items__img"> 
+                                    <tr class="table__content">
+                                        <td data-label="Mã sản phẩm" class=""><?php echo $row[0]; ?> </td>
+                                        <td data-label="Hình ảnh" class="items__img">
                                             <div class="items__image">
                                                 <img src="image/<?php echo $row[1]; ?>" alt="">
                                             </div>
                                         </td>
-                                        <td class=""><?php echo $row[2]; ?> </td>
-                                        <td>
+                                        <td data-label="Tên sản phẩm"><?php echo $row[2]; ?> </td>
+                                        <td data-label="Mô tả">
                                             <p class="items__decription">
                                             <?php echo $row[3]; ?>
                                             </p>
                                         </td>
-                                        <td class="items__quantity"><?php echo $row[4]; ?></td>
-                                        <td class="items__orders"><?php echo $row[5]; ?></td>
-                                        <td class="items__price"><?php echo number_format($row[6])." VND"; ?></td>
-                                        <td>
+                                        <td data-label="Số lượng" class="items__quantity"><?php echo $row[4]; ?></td>
+                                        <td data-label="Đang đặt" class="items__orders"><?php echo $row[5]; ?></td>
+                                        <td data-label="Giá bán" class="items__price"><?php echo number_format($row[6]); ?></td>
+                                        <td data-label="Thao tác">
                                             <div class="btn">
                                                 <div class="btn__view">
                                                     <a href="./index.php?page_layout=view&id=<?php echo $row[0];?>" class="btn__link">
@@ -225,3 +240,5 @@
             return confirm("Bạn có chắc chắn muốn xoá sản phẩm: " + name + " không?");
         }
     </script>
+<!-- </body>
+</html> -->
