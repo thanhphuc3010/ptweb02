@@ -38,7 +38,6 @@
         $query = mysqli_query($connect,$sql);
         header('location: ./index.php?page_layout=list');
     }
-
 ?>
 <div class="wrapper">
     <!-- Lưới Grid -->
@@ -200,8 +199,13 @@
                                         <label>Tỉ lệ thuế<span>*</span></label>
                                     </div>
                                 </div>
-                                <div class="col l-4 m-12 c-12">
+                                <div class="col l-3 m-12 c-12">
                                     <button class = "form__button" type="submit" name="submit">Lưu thông tin sản phẩm</button>
+                                </div>
+                                <div class="col l-3 m-12 c-12">
+                                    <div class="backtolist">
+                                        <a href="./index.php?page_layout=list"> Quay lại </a>
+                                    </div>
                                 </div>
                             </form>
                         </div>

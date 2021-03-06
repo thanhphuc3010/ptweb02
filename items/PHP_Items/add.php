@@ -121,19 +121,19 @@ ob_end_flush();
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="text" name="makeId">
+                                        <input type="text" name="makeId" required>
                                         <label>Mã nhà sản xuất<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number" name="qty_available">
+                                        <input type="number" name="qty_available" required>
                                         <label>Số lượng<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number" name="qtyOnOrder">
+                                        <input type="number" name="qtyOnOrder" required>
                                         <label>Đang đặt hàng<span>*</span></label>
                                     </div>
                                 </div>
@@ -157,36 +157,41 @@ ob_end_flush();
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number"name="cost">
+                                        <input type="number"name="cost" required>
                                         <label>Giá nhập<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number"name="price">
+                                        <input type="number"name="price" required>
                                         <label>Giá bán lẻ<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number"name="wholeSalePrice">
+                                        <input type="number"name="wholeSalePrice" required>
                                         <label>Giá bán buôn<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number"name="specialPrice">
+                                        <input type="number"name="specialPrice" required>
                                         <label>Giá đặc biệt<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-12 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="number"name="tax">
+                                        <input type="number"name="tax" required>
                                         <label>Tỉ lệ thuế<span>*</span></label>
                                     </div>
                                 </div>
-                                <div class="col l-12 m-12 c-12">
+                                <div class="col l-2 m-12 c-12">
                                     <button class = "form__button" type="submit" name="submit">Thêm sản phẩm</button>
+                                </div>
+                                <div class="col l-2 m-12 c-12">
+                                    <div class="backtolist">
+                                        <a href="./index.php?page_layout=list"> Quay lại </a>
+                                    </div>
                                 </div>
                             </form>
                         </div>
