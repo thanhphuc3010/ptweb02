@@ -413,10 +413,8 @@ header {
     border: 1px solid var(--border-color);
     border-radius: 10px;
 }
-
-.card__header {
     
-}
+
 
 .card__title {
     display: block;
