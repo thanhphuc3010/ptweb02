@@ -18,3 +18,4 @@ function excuteResult($sql){
    mysqli_close($conn);
    return $list;
 }
+?>

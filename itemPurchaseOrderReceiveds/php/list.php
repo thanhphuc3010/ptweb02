@@ -15,6 +15,7 @@
     
 </head>-->
 <body>
+   
     <div class="wrapper">
         <!-- Lưới Grid -->
         <header>
@@ -92,6 +93,7 @@
                         <table class="data ">
                             <thead class="data__title">
                                 <tr class="table__title">
+                                    <th class="col_1">Mã đơn </th>
                                     <th class="col_1">Mã đơn hàng</th>
                                     <th class="col_2">Ngày nhận</th>
                                     <th class="col_3">Số lượng nhận</th>
@@ -105,6 +107,7 @@
                             <tbody class="data_content">
 
                                   <tr class="table__content">
+                                    <td class="">ORD2022</td>
                                     <td class="">ORD2021</td>
                                     <td class="date_received">06/03/2021</td>
                                     <td class="qty_received">12000</td>
@@ -114,6 +117,11 @@
                                     <td class="note">rdtu000</td>
                                     <td>
                                         <div class="btn">
+                                            <div class="btn__view">
+                                                    <a href="./index.php?page_layout=view" class="btn__link">
+                                                        <i class="btn_icon far fa-eye"></i>
+                                                    </a>
+                                            </div>
                                             <div class="btn__edit">
                                                 <a href="./index.php?page_layout=edit" class="edit__link">
                                                     <i class="btn_icon fas fa-pencil-alt"></i>

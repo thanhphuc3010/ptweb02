@@ -47,3 +47,40 @@ a {
 ul, li {
     list-style: none;
 }
+
+.col_1 {
+    width: 10%;
+}
+
+.col_1-2 {
+    width: 12%;
+}
+
+.col_2 {
+    width: 20%;
+}
+
+.col_3 {
+    width: 30%;
+}
+
+.col_4 {
+    width: 40%;   
+}
+
+.col_5 {
+    width:50%;
+}
+
+.col_6 {
+    width: 60%;
+}
+
+.col_7 {
+    width: 40%;
+}
+
+.col_8 {
+    width: 30%;
+}
+

@@ -1,3 +1,5 @@
+
+
 header {
     background-color: var(--white-color);
     box-shadow: 0px 16px 15px 0px rgb(0 0 0 / 4%);
@@ -149,7 +151,7 @@ header {
 }
 
 
-/* Main section bao gồm title + table*/
+/* Main section bao gồm title + table + pagination */
 .app {
     padding-top: 92px;
     min-height: 700px;
@@ -208,7 +210,6 @@ header {
 
 
 
-
 .items__img {
     border-radius: 5px;
 }
@@ -218,74 +219,63 @@ header {
     display: block;
     object-fit: cover;
     border-radius: 5px;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
-table{
-    border: 1px solid var(--border-color);
+.label__price {
+    text-align: right;
+}
+
+
+/* Table */
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
-    border-radius: 10px;
-    border-spacing: 0;
     overflow: hidden;
-    border-bottom: none;
-}
-
-thead {
-    background-color: #f4f5fa;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     
 }
 
-
-tr {
-    line-height: 16px;
-    font-size: var(--normal-font-size);
+.content-table thead tr {
+    background-color: #f4f5fa;
     height: 50px;
-    font-style: normal;
 }
 
-.data_content {
-    max-height: 88px;
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
 }
 
-.table__content {
-    height: 88px;
-}
-
-th {
-    padding: 0px 12px;
-    font-weight: 500;
-    line-height: 1.4;
+.content-table tbody tr {
     border-bottom: 1px solid var(--border-color);
 }
 
-td {
-    padding: 0 12px;
-    font-weight: 500;
-    line-height: 1.4;
-    border-bottom: 1px solid var(--border-color); 
+.content-table tbody tr:last-child {
+    border-bottom: 2px solid #32BDEA;
 }
+
 
 .items__id {
     text-align: center;
 }
-.date_received {
+.items__quantity {
     text-align: center;
 }
 
 
-.qty_received {
+.items__orders {
     text-align: center;
 }
 
-.amount_received {
-    text-align: center;
+.items__price {
+    text-align: right;
 }
-.qty_sold{
-    text-align: center;
-}
-.note {
+
+.items__decription {
     line-height: 1.4;
-    width: 340px;
     height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -338,12 +328,92 @@ td {
     border-radius: 5px;
 }
 
+
+.footer {
+    padding-top: 20px;
+}
+
+.footer__box {
+    display: flex;
+    height: 68px;
+    margin: 0 0 10px;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    align-items: center;
+    font-size: var(--normal-font-size);
+}
+
+.footer__detail {
+    display: flex;
+    color: var(--text-color);
+    
+}
+
+.footer__policy {
+    padding: 0 20px;
+}
+
+.policy__link {
+    color: var(--text-color);
+}
+
+.policy__link:hover {
+    color: #32BDEA;
+}
+
+.use__link {
+    color: var(--text-color);
+}
+
+.use__link:hover {
+    color: #32BDEA;
+}
+
+.footer__copyright {
+    padding: 0 20px;
+}
+
+
+
+/* Pagination */
+.pagi {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-size: var(--medium-font-size);
+}
+
+.pagi__item {
+    margin: 0 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    list-style: none;
+}
+
+.pagi__item.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagi__item:hover,
+.pagi__item.is-active {
+    color: var(--hover-color);
+}
+
+
+
+
 /* ADD Items Page */
+
+
 
 .card {
     border: 1px solid var(--border-color);
     border-radius: 10px;
 }
+    
 
 
 .card__title {
@@ -428,6 +498,20 @@ span {
     cursor: pointer;
 }
 
+.backtolist {
+    width: 60%;
+    background-color:#78C091;
+    font-size: var(--normal-font-size);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.backtolist a {
+    display: block;
+    color: white;
+    line-height: 36.8px;
+}
+
 @media (max-width: 739px) {
     header {
         background-color: var(--white-color);
@@ -494,29 +578,134 @@ span {
         font-size: var(--normal-font-size);
         padding: 10px;
     }
-}/* Pagination */
-.pagi {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    font-size: var(--medium-font-size);
 }
 
-.pagi__item {
-    margin: 0 1.5rem;
-    color: #999;
-    cursor: pointer;
-    transition: all 0.2s linear;
-    list-style: none;
+/* RESPONSIVE TABLE */
+@media (max-width: 739px) {
+    .content-table {
+        box-shadow: none;
+        border-radius: unset;
+    }
+
+    .content-table tbody tr {
+        border: 1px solid var(--border-color);
+        border-bottom: 0;
+    }
+
+    .content-table tbody td {
+        border-bottom: 1px solid var(--border-color);
+        text-align: right;
+        padding-left: 50%;
+    }
+
+    .content-table tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 50px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+
+    .items__image img {
+        display: inline-block;
+        margin: 0;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    table tr {
+        margin-bottom: 20px;
+    }
+
+    .items__img {
+        border-radius: 0;
+    }
+
+
+    /* button edit view delete */
+    .btn {
+        justify-content: flex-end;
+    }
+
+    .btn div {
+        margin-left: 10px;
+    }
+
+    .items {
+        flex-direction: column;
+    }
+
+    .items__infor {
+        width: 100%;
+    }
+
+    .btn__genernal {
+        width: 100%;
+    }
+
+    .items__add {
+        height: 38px;
+    }
 }
 
-.pagi__item.is-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+
+/* bổ sung css bảng purchase order */
+
+.content-table th, .content-table td {
+    text-align: left;
+} 
+
+.form-group select {
+    height: 48.8px;
+    outline: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+ 
+.form-group select:focus {
+    border-color: var(--hover-color);
 }
 
-.pagi__item:hover,
-.pagi__item.is-active {
-    color: var(--hover-color);
+.form-group select option {
+    height: 48.8px;
 }
 
+
+
+
+
+/* Page Add Order */ 
+
+.main {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+
+.wide-order {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.content-table.orders {
+    width: 100%;
+    box-shadow: none;
+    font-size: var(--normal-font-size);
+}

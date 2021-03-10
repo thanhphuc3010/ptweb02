@@ -1,4 +1,26 @@
-
+<?php
+    require_once('config.php');
+?>
+<?php
+    if(isset($_POST['add']))
+    {
+        $IotId = $_POST('IotId');
+        $poLineId =$_POST('poLineId');
+        $receivedDate = $_POST('receivedDate');
+        $qtyReceived = $_POST('qtyReceived');
+        $amountReceived = $_POST('amountReceived');
+        $qtySold =$_POST('qtySold');
+        $amountSold =$_POST('amountSold');
+        $note =$_POST('amountSold');
+         if($conn -> query("INSERT INTO itempurchaseorderreceiveds (IotId,poLineId,receivedDate,qtyReceived,amountReceived,qtySold,amountSold,note) VALUES (N'IotId',N'poLineId',N'receivedDate',N'qtyReceived',N'amountReceived',N'qtySold',N'amountSold',N'note')"))
+        {
+            echo "<scrip>alert('Thêm thành công!');</scrip>";
+        }else{
+            echo "<scrip>alert('Thêm thất bại!');</scrip>";
+        }
+    }
+    $conn->close();
+?>
 <div class="wrapper">
     <!-- Lưới Grid -->
     <header>
@@ -62,16 +84,22 @@
                             </div>
                         </div>
                         <div class="card__body">
-                            <form class="row" method="POST" name="items-form" id="items-form" enctype="multipart/form-data">
+                            <form class="row" method="POST" name="received-form" id="received-form" enctype="multipart/form-data">
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group">
-                                        <input type="text" name="itemNo" required>
+                                        <input type="text" name="IotId" required>
+                                        <label>Mã đơn <span>*</span></label>
+                                    </div>
+                                </div>
+                                <div class="col l-6 m-12 c-12">
+                                    <div class="form-group">
+                                        <input type="text" name="poLineId" required>
                                         <label>Mã đơn hàng<span>*</span></label>
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
                                     <div class="form-group"> 
-                                        <input type="datetime-local" name="day" > 
+                                        <input type="datetime-local" name="receivedDate" > 
                                         <label>Ngày đặt hàng</label> 
                                     </div>
                                 </div>
@@ -105,7 +133,7 @@
                                 </div>
                                
                                 <div class="col l-6 m-2 c-12">
-                                    <button class = "form__button" type="submit" name="submit">Thêm sản phẩm</button>
+                                    <button class = "form__button" type="submit" name="add">Thêm đơn nhận</button>
                                 </div>
                                 <div class="col l-6 m-2 c-12">
                                     <div class="backtolist">
