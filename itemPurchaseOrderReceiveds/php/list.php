@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +9,11 @@
     <link rel="shortcut icon" href="./assets/img/logo.png" type="image/png">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="./css/style/.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     
-</head>
+</head>-->
 <body>
     <div class="wrapper">
         <!-- Lưới Grid -->
@@ -72,7 +73,7 @@
                                 Received list
                             </h1>
                             <p class="items__detail">
-                                Đây là nơi bạn theo dõi thông tin các sản phẩm của mình và thực hiện các chức năng có liên quan.
+                                Đây là nơi bạn theo dõi thông tin đơn hàng  và thực hiện các chức năng có liên quan.
                             </p>
                         </div>
                         <div class="btn__genernal">
@@ -88,7 +89,7 @@
                     </div>
 
                     <div class="content">
-                        <table class="data">
+                        <table class="data ">
                             <thead class="data__title">
                                 <tr class="table__title">
                                     <th class="col_1">Mã đơn hàng</th>
@@ -102,6 +103,7 @@
                                 </tr>
                             </thead>
                             <tbody class="data_content">
+
                                   <tr class="table__content">
                                     <td class="">ORD2021</td>
                                     <td class="date_received">06/03/2021</td>
@@ -109,31 +111,41 @@
                                     <td class="amount_received">7500000</td>
                                     <td class="qty_sold">20</td>
                                     <td class="amount_sold">40</td>
-                                    <td class="note">étrdtu000</td>
+                                    <td class="note">rdtu000</td>
                                     <td>
                                         <div class="btn">
-                                            <div class="btn__view">
-                                                <a href="#" class="view__link">
-                                                    <i class="btn_icon far fa-eye"></i>
-                                                </a>
-                                            </div>
                                             <div class="btn__edit">
-                                                <a href="#" class="edit__link">
+                                                <a href="./index.php?page_layout=edit" class="edit__link">
                                                     <i class="btn_icon fas fa-pencil-alt"></i>
                                                 </a>
                                             </div>
                                             <div class="btn__delete">
-                                                <a href="user.png" class="data_link">
+                                                <a href="index.php?page_layout=delete" class="data_link">
                                                     <i class="btn_icon far fa-trash-alt"></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-                                
                             </tbody>
                         </table>
                     </div>
+                    <ul class="pagi">
+                            <li class="pagi__item pagi__action pagi__prev is-disabled">
+                            <i class="pagi__icon fal fa-angle-left"></i>
+                            </li>
+                            <li class="pagi__item is-active">1</li>
+                            <li class="pagi__item">2</li>
+                            <li class="pagi__item">3</li>
+                            <li class="pagi__item">4</li>
+                            <li class="pagi__item">5</li>
+                            <li class="pagi__item pagi__action pagi__next">
+                            <i class="pagi__icon fal fa-angle-right"></i>
+                            </li>
+                    </ul>
+                    </div>
+            </div>
+        </div>
 
 
 

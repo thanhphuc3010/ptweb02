@@ -206,9 +206,7 @@ header {
     padding: 0 10px 0 20px;
 }
 
-td.items__img {
 
-}
 
 
 .items__img {
@@ -221,9 +219,6 @@ td.items__img {
     object-fit: cover;
     border-radius: 5px;
     margin: 0 auto;
-}
-
-.items__image {
 }
 
 table{
@@ -285,7 +280,9 @@ td {
 .amount_received {
     text-align: center;
 }
-
+.qty_sold{
+    text-align: center;
+}
 .note {
     line-height: 1.4;
     width: 340px;
@@ -307,9 +304,6 @@ td {
     font-size: 1rem;
 }
 
-.btn__icon {
-
-}
 
 .btn__view {
     width: 32px;
@@ -351,8 +345,6 @@ td {
     border-radius: 10px;
 }
 
-.card__header {
-}
 
 .card__title {
     display: block;
@@ -502,35 +494,29 @@ span {
         font-size: var(--normal-font-size);
         padding: 10px;
     }
-}
-.col_1 {
-    width: 10%;
-}
-
-.col_2 {
-    width: 15%;
-}
-
-.col_3 {
-    width: 10%;
+}/* Pagination */
+.pagi {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-size: var(--medium-font-size);
 }
 
-.col_4 {
-    width: 10%;   
+.pagi__item {
+    margin: 0 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    list-style: none;
 }
 
-.col_5 {
-    width:10%;
+.pagi__item.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
-.col_6 {
-    width: 10%;
+.pagi__item:hover,
+.pagi__item.is-active {
+    color: var(--hover-color);
 }
 
-.col_7 {
-    width: 20%;
-}
-
-.col_8 {
-    width: 10%;
-}
