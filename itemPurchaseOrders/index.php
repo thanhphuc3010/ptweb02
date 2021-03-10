@@ -1,7 +1,6 @@
 <?php
     require_once('./config/dbconnect.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +22,8 @@
                 case 'list':
                     require_once 'PHP_Items/list.php';
                     break;
-                case 'add':
-                    require_once 'PHP_Items/add.php';
+                case 'add-order':
+                    require_once 'PHP_Items/add-order.php';
                     break;
                 case 'edit':
                     require_once 'PHP_Items/edit.php';

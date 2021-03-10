@@ -65,7 +65,7 @@
                             </p>
                         </div>
                         <div class="btn__genernal">
-                            <button onclick="window.location.href='index.php?page_layout=add';" class="items__add">
+                            <button onclick="window.location.href='index.php?page_layout=add-order';" class="items__add">
                                 <i class="fas fa-plus items__icon "></i>
                                 <p>Tạo mới</p>
                             </button>
@@ -167,6 +167,7 @@
             </div>
         </footer>
     </div>
+
     <script >
         document.getElementById("btn_lang").addEventListener("click",function()
         {
@@ -185,4 +186,6 @@
         function Del(name) {
             return confirm("Bạn có chắc chắn muốn xoá đơn hàng: " + name + " không?");
         }
+
+       
     </script>

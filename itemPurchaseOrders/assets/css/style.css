@@ -1,5 +1,3 @@
-
-
 header {
     background-color: var(--white-color);
     box-shadow: 0px 16px 15px 0px rgb(0 0 0 / 4%);
@@ -162,10 +160,9 @@ header {
     font-size: var(--normal-font-size);
 }
 
-.items {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.purorder {
+    height: 350px;
+    overflow-y: scroll;
 }
 
 .items__infor {
@@ -232,8 +229,7 @@ header {
 .content-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    overflow: hidden;
+    padding-top: 20px;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     
@@ -246,7 +242,7 @@ header {
 
 .content-table th,
 .content-table td {
-    padding: 12px 15px;
+    padding: 10px;
 }
 
 .content-table tbody tr {
@@ -257,32 +253,6 @@ header {
     border-bottom: 2px solid #32BDEA;
 }
 
-
-.items__id {
-    text-align: center;
-}
-.items__quantity {
-    text-align: center;
-}
-
-
-.items__orders {
-    text-align: center;
-}
-
-.items__price {
-    text-align: right;
-}
-
-.items__decription {
-    line-height: 1.4;
-    height: 40px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
 
 
 .btn {
@@ -329,85 +299,7 @@ header {
 }
 
 
-.footer {
-    padding-top: 20px;
-}
-
-.footer__box {
-    display: flex;
-    height: 68px;
-    margin: 0 0 10px;
-    justify-content: space-between;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    align-items: center;
-    font-size: var(--normal-font-size);
-}
-
-.footer__detail {
-    display: flex;
-    color: var(--text-color);
-    
-}
-
-.footer__policy {
-    padding: 0 20px;
-}
-
-.policy__link {
-    color: var(--text-color);
-}
-
-.policy__link:hover {
-    color: #32BDEA;
-}
-
-.use__link {
-    color: var(--text-color);
-}
-
-.use__link:hover {
-    color: #32BDEA;
-}
-
-.footer__copyright {
-    padding: 0 20px;
-}
-
-
-
-/* Pagination */
-.pagi {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    font-size: var(--medium-font-size);
-}
-
-.pagi__item {
-    margin: 0 1.5rem;
-    color: #999;
-    cursor: pointer;
-    transition: all 0.2s linear;
-    list-style: none;
-}
-
-.pagi__item.is-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.pagi__item:hover,
-.pagi__item.is-active {
-    color: var(--hover-color);
-}
-
-
-
-
 /* ADD Items Page */
-
-
 
 .card {
     border: 1px solid var(--border-color);
@@ -708,4 +600,73 @@ span {
     width: 100%;
     box-shadow: none;
     font-size: var(--normal-font-size);
+}
+
+.table-orders {
+    height: 400px;
+}
+
+/* List sản phẩm khi search */
+.dropdown {
+    display: none;
+    width: 45%;
+    position: absolute;
+    background-color: var(--white-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.09);
+    font-size: var(--normal-font-size);
+    border-radius: 8px;
+    top: 174px;
+    
+}
+
+.dropdown-items {
+    padding: 10px 0 10px 10px;
+    color: var(--second-text-color);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.dropdown-items:last-child {
+    border-bottom: none;
+}
+
+.dropdown-items a {
+    color: var(--second-text-color);
+}
+
+
+/* Số lượng đặt hàng */
+.orders-input input {
+    display: block;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    margin: 0 auto;
+    outline: none;
+    border: 1px solid var(--border-color);
+    font-size: var(--normal-font-size);
+    color: var(--second-text-color);
+}
+
+.orders-input input:focus {
+    border-color: #32BDEA;
+}
+
+/* CSS button Orders */
+.btn-orders {
+    height: 85.8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-orders .items__add {
+    height: 48.8px;
+    width: 100%;
+    margin: 0;
+}
+
+
+.table__content {
+    height: 60px;
 }

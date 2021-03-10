@@ -27,7 +27,6 @@
         move_uploaded_file($image_tmp,'image/'.$image);
         header('location: index.php?page_layout=list');
     }
-
 ?>
 <div class="wrapper">
     <!-- Lưới Grid -->
