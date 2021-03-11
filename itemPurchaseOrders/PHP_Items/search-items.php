@@ -1,11 +1,8 @@
 <?php
     require_once '../config/dbconnect.php';
-
-    $name = $_POST['data'];
+    $name = $_POST['idd'];
     $sql = "SELECT * FROM Items WHERE itemName LIKE '%$name%'";
     $query = mysqli_query($connect,$sql);
-
-    
 ?>
 
 <?php 
@@ -15,4 +12,6 @@ while($row_items = mysqli_fetch_assoc($query)) { ?>
 <?php
 }
 ?>
+
+
 

@@ -5,7 +5,7 @@
             var txt = $(".search-products").val();
             if(txt != "") {
                 $(".dropdown").fadeIn();
-                $.post("./PHP_Items/search-items.php", {data: txt}, function(data) {
+                $.post("./PHP_Items/search-items.php", {idd: txt}, function(data) {
                 $(".dropdown-list").html(data);
                 });
             } else {
@@ -16,10 +16,17 @@
         
         $(document).on("click",".dropdown-items",function() {
                 var mess = $(".id-products").val()
-                $.post("./PHP_Items/search-items.php", {id: mess}, function (data) {
-                    $("table__content").append("<li>Appended item</li>")
+                $.post("./PHP_Items/add-items-to-order.php", {id: mess}, function (data) {
+                    $(".data_content").append(data);
                 });
                 $(".dropdown").fadeOut();
+        });
+
+        $("#supplierName").keyup(function() {
+            var spName = $("#supplierName").val();
+            $.post("./PHP_Items/find-sup.php",{spName:spName},function() {
+
+            });
         });
     });
 </script>
@@ -92,35 +99,34 @@
                             <div class="purorder">
                                 <table class="content-table orders">
                                     <thead class="data__title">
-                                        <tr class="table__title">
-                                            <th class="col_1-2">Mã sản phẩm</th>
+                                        <tr id = "data-title" class="table__title">
+                                            <th class="col_1-2" style="text-align:left;" >Mã sản phẩm</th>
                                             <th class="col_2">Tên sản phẩm</th>
                                             <th class="">Số lượng đặt</th>
                                             <th class="">Giá nhập</th>
-                                            <th class="col_1-2">Thành tiền</th>
+                                            <th class="col_1-2" style="text-align: right;">Thành tiền</th>
                                             <th class="col_2">Ghi chú</th>
                                             <th class="">Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody class="data_content">
                                         <tr class="table__content">
-                                            <td class="">ITEM00001</td>
-                                            <td class="items__img">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
-                                            <td class="orders-input">
+                                            <td data-label="itemNo">ITEM00001</td>
+                                            <td data-label="itemName">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
+                                            <td data-label="quantity" class="orders-input">
                                                 <input type="number" min="1" value="1">
                                             </td>
-                                            <td class="orders-input">
-                                                <input type="number">
+                                            <td data-label="cost" class="orders-input">
+                                                <input type="number" min="1" value="1">
                                             </td>
-                                            <td>20</td>
-                                            <td>20</td>
+                                            <td class="orders-input" id = "orders-amount" style="text-align: right;">
+                                                <input type="text">
+                                            </td>
+                                            <td class="orders-input" >
+                                                <input type="text" style="width:100%;text-align: left;">
+                                            </td>
                                             <td>
                                                 <div class="btn">
-                                                    <div class="btn__view">
-                                                        <a href="#" class="btn__link">
-                                                            <i class="btn_icon far fa-eye"></i>
-                                                        </a>
-                                                    </div>
                                                     <div class="btn__edit">
                                                         <a href="#" class="btn__link">
                                                             <i class="btn_icon fas fa-pencil-alt"></i>
@@ -226,10 +232,10 @@
             <div class="row">
                 <div class="col l-9">
                     <div class="col l-12">
-                        <div class="row">
+                        <div id="supplier" class="row">
                             <div class="col l-3">
                                 <div class="form-group">
-                                    <input type="text" name="supplierName">
+                                    <input id="supplierName"type="text" name="supplierName">
                                     <label>Tên nhà cung cấp</label>
                                 </div>
                             </div>
@@ -251,10 +257,6 @@
                                     <label>Email</label>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col l-12">
-                        <div class="row">
                             <div class="col l-3">
                                 <div class="form-group">
                                     <input type="text" name="address">

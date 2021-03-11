@@ -19,8 +19,8 @@
     <?php
         if(isset($_GET['page_layout'])) {
             switch ($_GET['page_layout']) {
-                case 'list':
-                    require_once 'PHP_Items/list.php';
+                case 'list-orders':
+                    require_once 'PHP_Items/list-orders.php';
                     break;
                 case 'add-order':
                     require_once 'PHP_Items/add-order.php';
@@ -39,7 +39,7 @@
                     break;
             }
         } else{
-            require_once 'PHP_Items/list.php';
+            require_once 'PHP_Items/list-orders.php';
         }
     ?>
 </body>

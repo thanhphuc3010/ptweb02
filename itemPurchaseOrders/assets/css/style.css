@@ -559,7 +559,7 @@ span {
 /* bổ sung css bảng purchase order */
 
 .content-table th, .content-table td {
-    text-align: left;
+    /* text-align: left; */
 } 
 
 .form-group select {
@@ -579,6 +579,14 @@ span {
     height: 48.8px;
 }
 
+.items__decription {
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
 
 
 
@@ -586,7 +594,7 @@ span {
 /* Page Add Order */ 
 
 .main {
-    padding-top: 100px;
+    padding-top: 84px;
     min-height: 100vh;
 }
 
@@ -652,6 +660,13 @@ span {
     border-color: #32BDEA;
 }
 
+#orders-amount input {
+    width: 100%;
+    margin: 0;
+}
+
+
+
 /* CSS button Orders */
 .btn-orders {
     height: 85.8px;
@@ -669,4 +684,8 @@ span {
 
 .table__content {
     height: 60px;
+}
+
+#data-title {
+    text-align: center;
 }
