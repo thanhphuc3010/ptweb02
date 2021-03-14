@@ -1,0 +1,313 @@
+header {
+    background-color: var(--white-color);
+    box-shadow: 0px 16px 15px 0px rgb(0 0 0 / 4%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.navbar {
+    padding: 0 30px;
+    display: flex;
+    background-color: var(--white-color);
+    height: 72px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search__box {
+    border: 1px solid var(--border-color);
+    height: 40px;
+    border-radius: 10px;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.search__mb {
+    display: none;
+}
+
+.search__link {
+    line-height: 40px;
+    padding: 0 15px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.search__icon {
+    font-size: var(--normal-font-size);
+}
+
+.search__input {
+    border: none;
+    font-size: var(--normal-font-size);
+    width: 400px;
+    height: 100%;
+    padding: 5px 15px 5px 0px;
+    outline: none;
+}
+
+.account {
+    position: relative;
+    font-size: var(--normal-font-size);
+    height: 100%;
+}
+
+.account__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+
+.account__link {
+    text-decoration: none;
+}
+
+.account__img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+
+/* Style General about language element */
+
+.language {
+    display: flex;
+    padding: 0px 20px;
+    border: 1px solid var(--border-color);
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-right: 10px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.language__link {
+    line-height: 38px;
+    color: var(--text-color);
+}
+
+.language__link img {
+    width: 16px;
+    height: auto;
+}
+
+.user__icon {
+    line-height: 72px;
+    padding: 0 10px;
+    font-size: var(--title-font-size);
+}
+
+@keyframes growup {
+    from {
+        top: 100px;
+    }
+    to {
+        top: 60px;
+    }
+}
+
+
+/* Dropbox Language */
+
+.dropbox {
+    display: none;
+    position: absolute;
+    width: 180px;
+    border: 1px solid var(--border-color);
+    background-color: var(--white-color);
+    border-radius: 8px;
+    left: -106px;
+    top: 60px;
+    animation: growup 0.5s;
+    transition: ease-in 0.2s;
+}
+
+.dropbox__items:first-child {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dropbox__link {
+    line-height: 38px;
+    padding-left: 10px;
+    color: var(--text-color);
+}
+
+.dropbox__link img {
+    width: 16px;
+    height: auto;
+}
+
+
+/* Main section bao gồm title + table + pagination */
+
+.app {
+    background-color: aqua;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    padding: 0 30px;
+    font-size: var(--normal-font-size);
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.items__infor {
+    width: 50%;
+    line-height: 1.4;
+}
+
+.items__title {
+    font-size: var(--title-font-size);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.items__add {
+    height: 42px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: #32bdea;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.items__add:first-child {
+    margin-right: 10px;
+}
+
+.items__add p {
+    display: inline;
+    padding-right: 20px;
+    font-size: var(--normal-font-size);
+}
+
+.items__icon {
+    padding: 0 10px 0 20px;
+}
+
+.items__img {
+    border-radius: 5px;
+}
+
+.items__img img {
+    height: 50px;
+    display: block;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.label__price {
+    text-align: right;
+}
+.modal__body {
+    background-color: #fff;
+}
+.inner__head {
+    height: 58px;
+    padding: 20px;
+    background-color: #15cdf7;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.head__title {
+    display: block;
+ 
+}
+.title__sub {
+    color: #fff;
+
+}
+.head__btn {
+    box-sizing: border-box;
+
+}
+.btn__left {
+    cursor: pointer;
+    color: #fff;
+    background-color: #06a3d6;
+    margin-right: 8px;
+    border: 1px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.btn__print {
+    margin-right: 5px;
+}
+.btn__right {
+    background-color: #06a3d6;
+    color: #fff;
+    border: 1px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.btn__pdf {
+    
+}
+.inner__body {
+    padding: 20px;
+}
+.body__row {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+   
+}
+.row {
+    position: relative;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+
+}
+.logo__img {
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    margin-bottom: 1rem;
+}
+.row__table {
+    box-sizing: border-box;
+    display: block;
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 29px;
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+.table {
+    border: 1px solid #DCDFE8;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #110A57;
+    box-sizing: border-box;
+}
+
+
+
