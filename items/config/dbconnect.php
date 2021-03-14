@@ -1,15 +1,9 @@
 <?php
     // Database connection
     $connect = @mysqli_connect("localhost","root","Thanhphuc3010@");
-    if($connect) {
-        echo "Kết nối thành công";
-    }
+    if($connect) {}
     else echo 'Kết nối thất bại';
     $DBSelect = @mysqli_select_db($connect,"ptweb002"); 
-    if($DBSelect) {
-        echo "Kết nối thành công";
-    }
-    else echo 'Kết nối thất bại';
 ?>
 
 <?php

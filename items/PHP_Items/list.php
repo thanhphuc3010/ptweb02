@@ -17,6 +17,18 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head> -->
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".search__input").keyup(function() {
+                var txt = $(".search__input").val();
+                $.post("./PHP_Items/search.php", {data: txt}, function(data) {
+                    $(".data").html(data);
+                });
+            });
+        });
+    </script>
     <div class="wrapper">
         <!-- Lưới Grid -->
         <header>
@@ -91,7 +103,8 @@
                     </div>
 
                     <div class="content">
-                        <table class="content-table">
+                        <table
+                         class="content-table">
                             <thead class="data__title">
                                 <tr class="table__title">
                                     <th data-label="Mã sản phẩm">Mã sản phẩm</th>
@@ -104,43 +117,7 @@
                                     <th data-label="Thao tác">Thao tác</th>
                                 </tr>
                             </thead>
-                            <tbody class="data_content">
-                                <!-- <tr class="table__content">
-                                    <td data-label="Mã sản phẩm" class="">ITEM00001</td>
-                                    <td data-label="Hình ảnh" class="items__img"> 
-                                        <div class="items__image">
-                                            <img src="../image/quantaynam.jpg" alt="">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tên sản phẩm">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
-                                    <td data-label="Mô tả">
-                                        <p class="items__decription">
-                                            iPhone 12 Pro Max 512GB - đẳng cấp từ tên gọi đến từng chi tiết. Ngay từ khi chỉ là tin đồn thì chiếc smartphone này đã làm đứng ngồi không yên bao “fan cứng” nhà Apple.
-                                        </p>
-                                    </td>
-                                    <td data-label="Số lượng" class="items__quantity">20</td>
-                                    <td data-label="Đang đặt" class="items__orders">40</td>
-                                    <td data-label="Giá bán" class="items__price">33000000</td>
-                                    <td data-label="Thao tác">
-                                        <div class="btn">
-                                            <div class="btn__view">
-                                                <a href="#" class="btn__link">
-                                                    <i class="btn_icon far fa-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="btn__edit">
-                                                <a href="#" class="btn__link">
-                                                    <i class="btn_icon fas fa-pencil-alt"></i>
-                                                </a>
-                                            </div>
-                                            <div class="btn__delete">
-                                                <a href="#" class="btn__link">
-                                                    <i class="btn_icon far fa-trash-alt"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr> -->
+                            <tbody class="data">
                                 <?php
                                 while($row = mysqli_fetch_row($query)){?>
                                     <tr class="table__content">
