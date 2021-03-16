@@ -181,7 +181,7 @@
 
 /* >= Tablet */
 
-@media (min-height: 740px) {
+@media (min-width: 740px) {
     .row {
         margin-left: -8px;
         margin-right: -8px;

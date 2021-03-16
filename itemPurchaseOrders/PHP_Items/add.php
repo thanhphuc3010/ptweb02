@@ -1,32 +1,32 @@
 <?php
-    if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
-        $itemNo = $_POST['itemNo'];
+    $itemNo = $_POST['itemNo'];
 
-        $image = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
+    $image = $_FILES['image']['name'];
+    $image_tmp = $_FILES['image']['tmp_name'];
 
-        $itemName = $_POST['itemName'];
-        $otherName= $_POST['otherName'];
-        $colorId = $_POST['colorId'];
-        $makeId = $_POST['makeId'];
-        $qty_available = $_POST['qty_available'];
-        $qtyOnOrder = $_POST['qtyOnOrder'];
-        $decription = $_POST['decription'];
-        $location = $_POST['location'];
-        $usefor = $_POST['usefor'];
-        $cost = $_POST['cost'];
-        $price = $_POST['price'];
-        $wholeSalePrice = $_POST['wholeSalePrice'];
-        $specialPrice = $_POST['specialPrice'];
-        $tax = $_POST['tax'];
+    $itemName = $_POST['itemName'];
+    $otherName = $_POST['otherName'];
+    $colorId = $_POST['colorId'];
+    $makeId = $_POST['makeId'];
+    $qty_available = $_POST['qty_available'];
+    $qtyOnOrder = $_POST['qtyOnOrder'];
+    $decription = $_POST['decription'];
+    $location = $_POST['location'];
+    $usefor = $_POST['usefor'];
+    $cost = $_POST['cost'];
+    $price = $_POST['price'];
+    $wholeSalePrice = $_POST['wholeSalePrice'];
+    $specialPrice = $_POST['specialPrice'];
+    $tax = $_POST['tax'];
 
-        $sql = "INSERT INTO items (itemNo,image,itemName,otherName,colorId,makeId,qty_available,qtyOnOrder,decription,location,usefor,cost,price,wholeSalePrice,specialPrice,tax) VALUES ('$itemNo', '$image', '$itemName', '$otherName', '$colorId', $makeId, $qty_available, $qtyOnOrder, '$decription', '$location', '$usefor', $cost, $price, $wholeSalePrice, $specialPrice, $tax)";
+    $sql = "INSERT INTO items (itemNo,image,itemName,otherName,colorId,makeId,qty_available,qtyOnOrder,decription,location,usefor,cost,price,wholeSalePrice,specialPrice,tax) VALUES ('$itemNo', '$image', '$itemName', '$otherName', '$colorId', $makeId, $qty_available, $qtyOnOrder, '$decription', '$location', '$usefor', $cost, $price, $wholeSalePrice, $specialPrice, $tax)";
 
-        $query = mysqli_query($connect,$sql);
-        move_uploaded_file($image_tmp,'image/'.$image);
-        header('location: index.php?page_layout=list');
-    }
+    $query = mysqli_query($connect, $sql);
+    move_uploaded_file($image_tmp, 'image/' . $image);
+    header('location: index.php?page_layout=list');
+}
 ?>
 <div class="wrapper">
     <!-- Lưới Grid -->
@@ -44,8 +44,8 @@
                 </div>
                 <div class="account">
                     <ul class="account__list">
-                        <li  class="account__items language">
-                            <a id ="btn_lang" class="language__link" href="#">
+                        <li class="account__items language">
+                            <a id="btn_lang" class="language__link" href="#">
                                 <img src="./assets/img/vietnam_flag.jpg" alt="vietnam flag">
                                 Vi
                             </a>
@@ -99,15 +99,18 @@
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
-                                    <div class="form-group"> <!-- id = "image__file">-->
-                                        <input type="datetime-local" name="day" > <!--accept="image/*">-->
+                                    <div class="form-group">
+                                        <!-- id = "image__file">-->
+                                        <input type="datetime-local" name="day">
+                                        <!--accept="image/*">-->
                                         <label>Ngày đặt hàng</label> <!-- Có cái sổ xuống để chọn này-->
                                     </div>
                                 </div>
                                 <div class="col l-12 m-12 c-12">
                                     <div class="form-group">
                                         <input type="text" name="itemName" required>
-                                        <label>Số đơn hàng<span>*</span></label> <!--Tự sinh hoặc nhập vào-->
+                                        <label>Số đơn hàng<span>*</span></label>
+                                        <!--Tự sinh hoặc nhập vào-->
                                     </div>
                                 </div>
                                 <div class="col l-12 m-12 c-12">
@@ -137,7 +140,8 @@
                                         </select>
 
                                         <!-- <input type="text" name="qty_available"> -->
-                                        <label>Trạng thái</label> <!--Không bắt buộc-->
+                                        <label>Trạng thái</label>
+                                        <!--Không bắt buộc-->
                                     </div>
                                 </div>
                                 <div class="col l-6 m-12 c-12">
@@ -147,7 +151,8 @@
                                             <option value="1">has_bill</option>
                                             <option value="2">done</option>
                                         </select>
-                                        <label>Tình trạng hóa đơn</label> <!--Không bắt buộc-->
+                                        <label>Tình trạng hóa đơn</label>
+                                        <!--Không bắt buộc-->
                                     </div>
                                 </div>
                                 <div class="col l-12 m-12 c-12">
@@ -199,14 +204,14 @@
                                     </div>
                                 </div>-->
                                 <div class="col l-12 m-12 c-12">
-                                    <button class = "form__button" type="submit" name="submit">Thêm hóa đơn</button>
+                                    <button class="form__button" type="submit" name="submit">Thêm hóa đơn</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -234,16 +239,12 @@
         </div>
     </footer>
 </div>
-<script >
-    document.getElementById("btn_lang").addEventListener("click",function()
-    {
+<script>
+    document.getElementById("btn_lang").addEventListener("click", function() {
         var drbox = document.getElementById("dropbox");
-        if (drbox.style.display == "block")
-        {
+        if (drbox.style.display == "block") {
             drbox.style.display = "none";
-        }
-        else 
-        {
+        } else {
             drbox.style.display = "block";
         }
     })

@@ -718,11 +718,22 @@ span {
 
 
 /* CSS button Orders */
+/* CSS button Orders */
 .btn-orders {
     height: 85.8px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#add-orders, #btn-back {
+    height: 48.8px;
+    width: 100%;
+    margin: 0;
+}
+
+#btn-back {
+    background-color: var(--primary-color);
 }
 
 .btn-orders .items__add {
@@ -769,4 +780,106 @@ span {
 }
 .content {
     padding-top: 20px;
+}
+
+
+
+/* Staff dropdown */
+
+.staff {
+    display: none;
+    width: 100%;
+    position: absolute;
+    background-color: var(--white-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: var(--normal-font-size);
+    border-radius: 5px;
+    z-index: 100;
+    top: 74px;
+    
+}
+
+.staff-items {
+    padding: 10px 0 10px 10px;
+    color: var(--second-text-color);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.staff-items:last-child {
+    border-bottom: none;
+}
+
+.staff-items a {
+    color: var(--second-text-color);
+}
+
+
+/* Status Pending, Open, Done  */
+
+.status {
+    --primary: #33ccff;
+    --secondary: #47536b;
+    width: 100%;
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 16px;
+}
+.status-caret {
+    color: var(--primary);
+}
+.status-select {
+    font-size: var(--normal-font-size);
+    background-color: white;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.status-select * {
+    pointer-events: none;
+    color: var(--text-color);
+}
+.status-list {
+    font-size: var(--normal-font-size);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.25);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: none;
+    z-index: 999;
+}
+.status-list:before {
+    content: "";
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    transform: translateY(-100%);
+}
+.status-list.show {
+    display: block;
+}
+.status-item {
+    padding: 1.5rem;
+    color: var(--secondary);
+    transition: all 0.25s ease;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.status-item:hover {
+    color: var(--primary);
+    background-color: #f1fbff;
 }
