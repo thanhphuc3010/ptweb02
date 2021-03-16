@@ -1,5 +1,5 @@
 <?php
-    $sql = "SELECT `poId`,`poNumber`,`supplierId`,`staffId`, `remark`, `status`, `billingStatus` FROM `itempurchaseorders` ";
+    $sql = "SELECT `orderDate`,`poNumber`,`supplierId`,`staffId`, `remark`, `status`, `billingStatus` FROM `itempurchaseorders` ";
     $query = mysqli_query($connect,$sql);
 ?>
 
@@ -80,13 +80,13 @@
                         <table class="content-table">
                             <thead class="data__title">
                                 <tr class="table__title">
-                                    <th class="col_1">Mã lô</th>
-                                    <th class="col_5">Ngày đặt</th>
-                                    <th>Mã nhận</th>
-                                    <th>Mã nhà cung cấp</th>
-                                    <th class="col_4 ">Mô tả</th>
-                                    <th class="col_6">Trạng thái</th>
-                                    <th class="col_7">Bill</th>
+                                    <th class="col_1">Ngày đặt hàng</th>
+                                    <th class="col_1">Mã nhận hàng</th>
+                                    <th class="col_1">Mã nhân viên</th>
+                                    <th class="col_1">Mã nhà cung cấp</th>
+                                    <th class="col_3">Mô tả</th>
+                                    <th class="col_1">Trạng thái đơn hàng</th>
+                                    <th class="col_3">Trạng thái hóa đơn</th>
                                     <th class="col_5">Thao tác</th>
                                 </tr>
                             </thead>
@@ -94,17 +94,21 @@
                                 <?php
                                 while ($row = mysqli_fetch_row($query)) { ?>
                                     <tr class="table__content">
-                                        <td class=""><?php echo $row[0]; ?> </td>
-                                        <td class="items__img"><?php echo $row[1]; ?></td>
-                                        <td class=""><?php echo $row[2]; ?> </td>
-                                        <td class="items__quantity"><?php echo $row[3]; ?></td>
+                                        <td class="orders--Date"><?php echo $row[0]; ?> </td>
+                                        <td class="orders--poNumber"><?php echo $row[1]; ?></td>
+                                        <td class="orders--staffId"><?php echo $row[2]; ?> </td>
+                                        <td class="orders--supplierId"><?php echo $row[3]; ?></td>
                                         <td>
-                                            <p class="items__decription">
+                                            <p class="orders__description">
                                             <?php echo $row[4]; ?>
                                             </p>
                                         </td>
-                                        <td class="items__orders"><?php echo $row[5]; ?></td>
-                                        <td class="items__price"><?php echo $row[6]; ?></td>
+                                        <td>
+                                            <div  class="orders orders--status"><?php echo $row[5]; ?></div>
+                                        </td>
+                                        <td>
+                                            <div class="orders orders--billingStatus"><?php echo $row[6]; ?></div>
+                                        </td>
                                         <td>
                                             <div class="btn">
                                                 <div class="btn__view">
