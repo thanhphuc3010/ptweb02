@@ -1,35 +1,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $(".search-products").keyup(function() {
-            var txt = $(".search-products").val();
-            if(txt != "") {
-                $(".dropdown").fadeIn();
-                $.post("./PHP_Items/search-items.php", {idd: txt}, function(data) {
-                $(".dropdown-list").html(data);
-                });
-            } else {
-                $(".dropdown-list").html("");
-                $(".dropdown").fadeOut();
-            }
-        });
-        
-        $(document).on("click",".dropdown-items",function() {
-                var mess = $(".id-products").val()
-                $.post("./PHP_Items/add-items-to-order.php", {id: mess}, function (data) {
-                    $(".data_content").append(data);
-                });
-                $(".dropdown").fadeOut();
-        });
-
-        $("#supplierName").keyup(function() {
-            var spName = $("#supplierName").val();
-            $.post("./PHP_Items/find-sup.php",{spName:spName},function() {
-
-            });
-        });
-    });
-</script>
 <div class="wrapper">
     <header>
         <div class="grid">
@@ -97,7 +66,7 @@
                         <!-- Table -->
                         <div class="col l-12 table-orders">
                             <div class="purorder">
-                                <table class="content-table orders">
+                                <table class="content-table orders" id="thetable">
                                     <thead class="data__title">
                                         <tr id = "data-title" class="table__title">
                                             <th class="col_1-2" style="text-align:left;" >Mã sản phẩm</th>
@@ -110,73 +79,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="data_content">
-                                        <tr class="table__content">
-                                            <td data-label="itemNo">ITEM00001</td>
-                                            <td data-label="itemName">Điện thoại Iphone 12 Pro Max 512GB Chính hãng</td>
-                                            <td data-label="quantity" class="orders-input">
-                                                <input type="number" min="1" value="1">
-                                            </td>
-                                            <td data-label="cost" class="orders-input">
-                                                <input type="number" min="1" value="1">
-                                            </td>
-                                            <td class="orders-input" id = "orders-amount" style="text-align: right;">
-                                                <input type="text">
-                                            </td>
-                                            <td class="orders-input" >
-                                                <input type="text" style="width:100%;text-align: left;">
-                                            </td>
-                                            <td>
-                                                <div class="btn">
-                                                    <div class="btn__edit">
-                                                        <a href="#" class="btn__link">
-                                                            <i class="btn_icon fas fa-pencil-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="btn__delete">
-                                                        <a href="#" class="btn__link">
-                                                            <i class="btn_icon far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- <?php
-                                        while ($row = mysqli_fetch_row($query)) { ?>
-                                            <tr class="table__content">
-                                                <td class=""><?php echo $row[0]; ?> </td>
-                                                <td class="items__img"><?php echo $row[1]; ?></td>
-                                                <td class=""><?php echo $row[2]; ?> </td>
-                                                <td class="items__quantity"><?php echo $row[3]; ?></td>
-                                                <td>
-                                                    <p class="items__decription">
-                                                        <?php echo $row[4]; ?>
-                                                    </p>
-                                                </td>
-                                                <td class="items__orders"><?php echo $row[5]; ?></td>
-                                                <td class="items__price"><?php echo $row[6]; ?></td>
-                                                <td>
-                                                    <div class="btn">
-                                                        <div class="btn__view">
-                                                            <a href="index.php?page_layout=view&id=<?php echo $row[0];?>" class="btn__link">
-                                                                <i class="btn_icon far fa-eye"></i>
-                                                            </a>
-                                                        </div>
-                                                        <div class="btn__edit">
-                                                            <a href="index.php?page_layout=edit&id=<?php echo $row[0];?>" class="btn__link">
-                                                                <i class="btn_icon fas fa-pencil-alt"></i>
-                                                            </a>
-                                                        </div>
-                                                        <div class="btn__delete">
-                                                            <a onclick="return Del('<?php echo $row[2];?>')" href="index.php?page_layout=delete&id=<?php echo $row[0];?>" class="btn__link">
-                                                            <i class="btn_icon far fa-trash-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        }
-                                        ?> -->
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -185,34 +88,61 @@
                 </div>
                 <div class="col l-3">
                      <div class="row">
-                         <div class="col l-12">
-                             <div class="form-group">
-                                 <input type="text" name="location">
-                                 <label>Mã đơn hàng</label>
-                             </div>
-                         </div>
-                         <div class="col l-12">
-                             <div class="form-group">
-                                 <input type="text" name="location">
-                                 <label>Mã nhận hàng</label>
-                             </div>
-                         </div>
                         <div class="col l-12">
                             <div class="form-group">
-                                <input type="datetime-local" name="orderDate">
+                                <input id="poNumber" type="text" name="location" required>
+                                <label>Mã đơn hàng</label>
+                            </div>
+                        </div>
+                        <div class="col l-12">
+                            <label style="font-size:var(--medium-font-size);padding-bottom:5px;">Trạng thái đơn hàng</label>
+                            <div class="status" id="status-list">
+                                <div class="status-select">
+                                    <span class="status-selected">Pending</span>
+                                    <i class="fa fa-angle-down status-caret"></i>
+                                </div>
+                                <ul class="status-list">
+                                    <li class="status-item" data-value="Pending">
+                                    Pending
+                                    </li>
+                                    <li class="status-item" data-value="Open">
+                                    Open
+                                    </li>
+                                    <li class="status-item" data-value="Done">
+                                    Done
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col l-12">
+                            <div class="form-group">
+                                <input class="datetime"id="orderDate" placeholder="Hôm nay"  name="orderDate" required>
                                 <label>Ngày đặt hàng</label>
                             </div>
                         </div>
                         <div class="col l-12">
                             <div class="form-group">
-                                <input type="datetime-local" name="receiveDate">
+                                <input  class="datetime" id="receiveDate" name="receiveDate" required>
                                 <label>Ngày dự kiến nhận</label>
                             </div>
                         </div>
                         <div class="col l-12">
                             <div class="form-group">
-                                <input type="text" name="staffId">
+                                <input id="staffId" type="text" name="staffId" required>
                                 <label>Mã nhân viên</label>
+                                <div class="staff">
+                                <ul class="staff-list ">
+                                    <li class="staff-items">
+                                        Phạm Thanh Phúc
+                                    </li>
+                                    <li class="staff-items">
+                                        Phạm Thanh Phúc
+                                    </li>
+                                    <li class="staff-items">
+                                        Phạm Thanh Phúc
+                                    </li>
+                                </ul>
+                            </div>
                             </div>
                         </div>
                         <div class="col l-12">
@@ -221,10 +151,7 @@
                                 <label>Điều khoản thanh toán</label>
                             </div>
                         </div>
-
-                         <!-- Thành tiền + Orders Button -->
-                         
-                     </div>              
+                    </div>              
                 </div>
             
                 
@@ -285,24 +212,72 @@
                     </div>
                 </div>
                 <div class="col l-3">
-                             <div class="row">
-                                 <div class="col l-12">
-                                     <div class="form-group">
-                                         <input type="text" name="amount">
-                                         <label>Thành tiền</label>
-                                     </div>
-                                 </div>
-                                 <div class="col l-12">
-                                     <div class="btn__genernal btn-orders">
-                                         <button type="submit" class="items__add">
-                                             <i class="fas fa-plus items__icon "></i>
-                                             <p>Tạo mới</p>
-                                         </button>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>                       
+                    <div class="row">
+                            <div class="col l-12">
+                                <div class="form-group">
+                                    <input type="text" name="amount">
+                                    <label>Thành tiền</label>
+                                </div>
+                            </div>
+                            <div class="col l-6">
+                                <div class="btn__genernal btn-orders">
+                                    <button type="button" onclick="window.location.href='index.php?page_layout=list-orders';" class="items__add" id="btn-back">
+                                        <i class="fas fa-arrow-left items__icon"></i>
+                                        <p>Quay lại</p>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col l-6">
+                                <div class="btn__genernal btn-orders">
+                                    <button type="button"onclick="window.location.href='index.php?page_layout=list-orders';" class="items__add" id="add-orders">
+                                        <i class="fas fa-plus items__icon "></i>
+                                        <p>Tạo mới</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
             </div>
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous"></script>
+<script src="./main.js"> </script>
+<script type="text/javascript" src="http://github.com/sauerc/jAutoCalc/raw/master/jAutoCalc.js"></script>
+<script>
+    $('.datetime').datetimepicker();
+
+    window.addEventListener("load", function () {
+        const statusItems = document.querySelectorAll(
+        "#status-list .status-item"
+        );
+        const statusSelect = document.querySelector(
+        "#status-list .status-select"
+        );
+        const statusSelectText = document.querySelector(
+        "#status-list .status-selected"
+        );
+        const statusList = document.querySelector(
+        "#status-list .status-list"
+        );
+        const statusCaret = document.querySelector(
+        "#status-list .status-caret"
+        );
+
+        statusSelect.addEventListener("click", function () {
+        statusList.classList.toggle("show");
+        statusCaret.classList.toggle("fa-angle-up");
+        });
+
+        function handleSelectstatus(e) {
+            const { value } = e.target.dataset;
+            statusSelectText.textContent = value;
+            statusList.classList.remove("show");
+            statusCaret.classList.remove("fa-angle-up");
+            }
+        statusItems.forEach((el) =>
+        el.addEventListener("click", handleSelectstatus)
+        );
+    });
+</script>
