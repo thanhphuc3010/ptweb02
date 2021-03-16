@@ -225,6 +225,9 @@ header {
 
 
 /* Table */
+table {
+    padding: 0;
+}
 
 .content-table {
     width: 100%;
@@ -265,6 +268,10 @@ header {
     align-items: center;
     font-size: 1rem;
     width: 130px;
+}
+
+.btn.btn-order-add {
+    width: auto;
 }
 
 
@@ -672,7 +679,7 @@ span {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.09);
     font-size: var(--normal-font-size);
     border-radius: 8px;
-    top: 174px;
+    top: 21%;
     
 }
 
@@ -759,9 +766,8 @@ span {
     background-color: #FF9770 !important;
 }
 
-.orders{
+.btn-style {
     display: inline-block;
-    padding: .25em .4em;
     font-size: 100%;
     font-weight: 700;
     line-height: 1;
