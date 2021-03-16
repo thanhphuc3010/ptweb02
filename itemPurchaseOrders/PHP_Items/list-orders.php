@@ -104,10 +104,10 @@
                                             </p>
                                         </td>
                                         <td>
-                                            <div  class="orders orders--status"><?php echo $row[5]; ?></div>
+                                            <div  class="btn-style orders--status"><?php echo $row[5]; ?></div>
                                         </td>
                                         <td>
-                                            <div class="orders orders--billingStatus"><?php echo $row[6]; ?></div>
+                                            <div class="btn-style orders--billingStatus"><?php echo $row[6]; ?></div>
                                         </td>
                                         <td>
                                             <div class="btn">

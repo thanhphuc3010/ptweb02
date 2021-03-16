@@ -9,7 +9,7 @@
 while($row_add = mysqli_fetch_assoc($query_items)) { ?>
     <tr items-id="<?php echo $row_add['itemNo']; ?>" class="table__content">
         <td class="itemNo"><?php echo $row_add['itemNo'];?></td>
-        <td class="items__img"><?php echo $row_add['itemName'];?></td>
+        <td class="items__img" style="text-align:justify;"><?php echo $row_add['itemName'];?></td>
         <td class="orders-input">
             <input name="qty" class="quantity" class="input-data" type="text" min="1" value="1">
         </td>
@@ -23,12 +23,7 @@ while($row_add = mysqli_fetch_assoc($query_items)) { ?>
             <input type="text" style="width:100%;text-align: left;">
         </td>
         <td>
-            <div class="btn">
-                <div class="btn__edit">
-                    <a href="#" class="btn__link">
-                        <i class="btn_icon fas fa-pencil-alt"></i>
-                    </a>
-                </div>
+            <div class="btn btn-order-add">
                 <div class="btn__delete">
                     <a href="#" id="btn-delete" class="btn__link">
                         <i class="btn_icon far fa-trash-alt"></i>
