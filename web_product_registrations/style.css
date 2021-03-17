@@ -46,16 +46,16 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
 }
-form .user-details .input-box{
+form .user-details .form-group{
     margin: 20px 0 20px 0;
     width: calc(100% / 2 - 20px);
     }
-    .user-details .input-box .details{
+    .user-details .form-group .details{
         display: block;
         font-weight: 500;
         margin-bottom: 5px;
     }
-    .user-details .input-box input{
+    .user-details .form-group input{
     height:45px ;
     width: 100%;
     outline: none;
@@ -66,12 +66,15 @@ form .user-details .input-box{
     border-bottom-width: 2px;
     transition: all 0.3s ease;
 }
-.user-details .input-box input:focus,
-.user-details .input-box input:valid{
+.user-details .form-group input:focus {
     border-color: #9b59b6;
 }
-form input[type="radio"]{
-    display: none;
+form input[type="radio"] {
+    /* margin: 5px 0; */
+}
+
+form input[type="text"]{
+    outline: none;
 }
 
 form .button{
