@@ -1,0 +1,85 @@
+/* IMPORT FONT FROM GOOGLE FONT */
+@font-face {
+    font-family: Poppins;
+    src: url('../font/PoppinsVN-400.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+:root {
+    /* COLOR */
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #110a57;
+    --second-text-color: #333;
+    --primary-color:#4cb050 ;
+    --hover-primary-color: #3d8c40;
+    --second-color:#337ab7;
+    --hover-second-color:#286090;
+    --border-color: #dcdfe8;
+    --hover-color:#32BDEA;
+
+    /* FONT SIZE */
+
+    --primary-font: Helvetica, Arial, sans-serif;
+    --normal-font-size: 1.4rem;
+    --medium-font-size: 1.6rem;
+    --title-font-size: 2rem;
+    --big-font-size: 2.2rem;  
+
+}
+
+/* RESET CSS */
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.col_1 {
+    width: 10%;
+}
+
+.col_2 {
+    width: 8%;
+}
+
+.col_3 {
+    width: 20%;
+}
+
+.col_4 {
+    width: 25%;   
+}
+
+.col_5 {
+    width:10%;
+}
+
+.col_6 {
+    width: 10%;
+}
+
+.col_7 {
+    width: 10%;
+}
+
+.col_8 {
+    width: 15%;
+}
