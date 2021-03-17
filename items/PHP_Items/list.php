@@ -103,8 +103,7 @@
                     </div>
 
                     <div class="content">
-                        <table
-                         class="content-table">
+                        <table class="content-table">
                             <thead class="data__title">
                                 <tr class="table__title">
                                     <th data-label="Mã sản phẩm">Mã sản phẩm</th>
