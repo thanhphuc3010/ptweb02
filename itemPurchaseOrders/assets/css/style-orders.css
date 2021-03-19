@@ -190,19 +190,21 @@ header {
     cursor: pointer;
 }
 
+.item__add--list {
+    padding: 10px;
+}
+
 .items__add:first-child {
     margin-right: 10px;
 }
 
 .items__add p {
     display: inline;
-    padding-right: 20px;
     font-size: var(--normal-font-size);
-
 }
 
 .items__icon {
-    padding: 0 10px 0 20px;
+    padding: 0 5px 0 5px;
 }
 
 
@@ -776,7 +778,7 @@ span {
     vertical-align: baseline;
     transition: color .15s;
     width: 100px;
-    padding: 15px;
+    padding: 10px 0;
     border-radius: 10px;
 }
 .items{
@@ -821,8 +823,38 @@ span {
 }
 
 
-/* Status Pending, Open, Done  */
+/* Supllier Dropdown */
+.supplier {
+    display: none;
+    width: 100%;
+    position: absolute;
+    background-color: var(--white-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: var(--normal-font-size);
+    border-radius: 5px;
+    z-index: 100;
+    top: 74px;
+    height: 74px;
+    overflow-y: scroll;
+}
 
+.supplier-items {
+    padding: 10px 0 10px 10px;
+    color: var(--second-text-color);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.supplier-items:last-child {
+    border-bottom: none;
+}
+
+.supplier-items a {
+    color: var(--second-text-color);
+}
+
+
+/* Status Pending, Open, Done  */
 .status {
     --primary: #33ccff;
     --secondary: #47536b;
@@ -888,4 +920,17 @@ span {
 .status-item:hover {
     color: var(--primary);
     background-color: #f1fbff;
+}
+
+
+/* STYLE TỔNG TIỀN */
+.form-group #totalAmount {
+    min-height: 48.8px;
+    padding: 5px;
+}
+
+#totalAmount {
+    font-size: var(--big-font-size);
+    color: red;
+    text-align: right;
 }

@@ -6,11 +6,19 @@
     $poNumber = $data['poNumber'];
     $orderDate = $data['orderDate'];
     $receiveDate = $data['receiveDate'];
+    $status = $data['status'];
+    $staffId = $data['staffId'];
+    $paymentTermId = $data['paymentTermId'];
+    $supplierId = $data['supplierId'];
+    $billingStatus = $data['billingStatus'];
+
+    $totalAmount = $data['totalAmount'];
+    $orderRemark = $data['orderRemark'];
     $detail_order = $data['detailorder'];
 
-    var_dump($detail_order);
+    // var_dump($detail_order);
 
-    $sql = "INSERT INTO `itempurchaseorders`(`orderDate`, `poNumber`, `supplierId`, `remark`, `paymentTermId`, `staffId`, `status`, `receiveDate`, `totalAmount`, `billingStatus`) VALUES('$orderDate','$poNumber', '1110003', 'Đây là ghi chú test', '100', '11183946', 'PENDING', '$receiveDate', '2000000', 'NO_BILL')";
+    $sql = "INSERT INTO `itempurchaseorders`(`orderDate`, `poNumber`, `supplierId`, `remark`, `paymentTermId`, `staffId`, `status`, `receiveDate`, `totalAmount`, `billingStatus`) VALUES('$orderDate','$poNumber', '$supplierId', '$orderRemark', '$paymentTermId', '$staffId', '$status', '$receiveDate', '$totalAmount', '$billingStatus')";
     $query = mysqli_query($connect,$sql);
     
     if($query) {
@@ -21,7 +29,7 @@
 
     
     $last_id = $connect->insert_id;
-    var_dump($last_id);
+    // var_dump($last_id);
 
 
     // "INSERT INTO `itempurchaseorderdetails` (`poLineId`, `poId`, `itemNo`, `qty`, `qtyReceived`, `cost`, `amount`, `note`, `created_date`, `updated_date`) VALUES ('1', '17', 'ITEM00006', '50', '0', '4000', '200000', 'Chưa nhận hàng'), ('2', '17', 'ITEM00030', '100', '0', '6000', '600000', 'Chưa nhận hàng',)";
@@ -31,11 +39,9 @@
     $sql_insert = "INSERT INTO `itempurchaseorderdetails` (`poLineId`, `poId`, `itemNo`, `qty`, `qtyReceived`, `cost`, `amount`, `note`) VALUES" ;
 
     $string_order = "";
-    $num = 7;
     foreach($detail_order as $key => $values){
 
-        $string_order .= "($num, $last_id, '{$values['id']}', {$values['quantity']}, 0, 4000, 200000, 'Chưa nhận hàng'),";
-        $num++;
+        $string_order .= "(null, $last_id, '{$values['id']}', {$values['quantity']}, 0, {$values['cost']}, {$values['amount']}, 'Chưa nhận hàng'),";
     }
 
     $sql_insert = $sql_insert.$string_order;

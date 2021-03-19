@@ -65,11 +65,11 @@
                             </p>
                         </div>
                         <div class="btn__genernal">
-                            <button onclick="window.location.href='index.php?page_layout=add-order';" class="items__add">
+                            <button onclick="window.location.href='index.php?page_layout=add-order';" class="items__add item__add--list">
                                 <i class="fas fa-plus items__icon "></i>
                                 <p>Tạo mới</p>
                             </button>
-                            <button class="items__add">
+                            <button class="items__add item__add--list">
                                 <i class="fas fa-download items__icon"></i>
                                 <p>In danh sách</p>
                             </button>
@@ -81,7 +81,7 @@
                             <thead class="data__title">
                                 <tr class="table__title">
                                     <th class="col_1">Ngày đặt hàng</th>
-                                    <th class="col_1">Mã nhận hàng</th>
+                                    <th class="col_1">Mã đơn hàng</th>
                                     <th class="col_1">Mã nhân viên</th>
                                     <th class="col_1">Mã nhà cung cấp</th>
                                     <th class="col_3">Mô tả</th>
@@ -92,37 +92,37 @@
                             </thead>
                             <tbody class="data_content">
                                 <?php
-                                while ($row = mysqli_fetch_row($query)) { ?>
+                                while ($row = mysqli_fetch_assoc($query)) { ?>
                                     <tr class="table__content">
-                                        <td class="orders--Date"><?php echo $row[0]; ?> </td>
-                                        <td class="orders--poNumber"><?php echo $row[1]; ?></td>
-                                        <td class="orders--staffId"><?php echo $row[2]; ?> </td>
-                                        <td class="orders--supplierId"><?php echo $row[3]; ?></td>
+                                        <td class="orders--Date"><?php echo $row['orderDate']; ?> </td>
+                                        <td class="orders--poNumber"><?php echo $row['poNumber']; ?></td>
+                                        <td class="orders--staffId"><?php echo $row['staffId']; ?> </td>
+                                        <td class="orders--supplierId"><?php echo $row['supplierId']; ?></td>
                                         <td>
                                             <p class="orders__description">
-                                            <?php echo $row[4]; ?>
+                                            <?php echo $row['remark']; ?>
                                             </p>
                                         </td>
                                         <td>
-                                            <div  class="btn-style orders--status"><?php echo $row[5]; ?></div>
+                                            <div  class="btn-style orders--status"><?php echo $row['status']; ?></div>
                                         </td>
                                         <td>
-                                            <div class="btn-style orders--billingStatus"><?php echo $row[6]; ?></div>
+                                            <div class="btn-style orders--billingStatus"><?php echo $row['billingStatus']; ?></div>
                                         </td>
                                         <td>
                                             <div class="btn">
                                                 <div class="btn__view">
-                                                    <a href="index.php?page_layout=view&id=<?php echo $row[0];?>" class="btn__link">
+                                                    <a href="index.php?page_layout=view&id=<?php echo $row['poNumber'];?>" class="btn__link">
                                                         <i class="btn_icon far fa-eye"></i>
                                                     </a>
                                                 </div>
                                                 <div class="btn__edit">
-                                                    <a href="index.php?page_layout=edit&id=<?php echo $row[0];?>" class="btn__link">
+                                                    <a href="index.php?page_layout=edit&id=<?php echo $row['poNumber'];?>" class="btn__link">
                                                         <i class="btn_icon fas fa-pencil-alt"></i>
                                                     </a>
                                                 </div>
                                                 <div class="btn__delete">
-                                                    <a onclick="return Del('<?php echo $row[2];?>')" href="index.php?page_layout=delete&id=<?php echo $row[0];?>" class="btn__link">
+                                                    <a onclick="return Del('<?php echo $row['poNumber'];?>')" href="index.php?page_layout=delete&id=<?php echo $row['poNumber'];?>" class="btn__link">
                                                         <i class="btn_icon far fa-trash-alt"></i>
                                                     </a>
                                                 </div>
