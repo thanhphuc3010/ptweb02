@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Details</title>
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/style_update.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="grid">
+                <div class="navbar">
+                    <div class="search">
+                        <form action="#" class="search__box">
+                            <a class="search__link" href="#"><i class="fas fa-search search__icon"></i></a>
+                            <input type="text" class="search__input" placeholder="Search here...">
+                        </form>
+                        <div class="search__mb">
+                            <a class="search__link" href="#"><i class="fas fa-search search__icon"></i></a>
+                        </div>
+                    </div>
+                    <div class="account">
+                        <ul class="account__list">
+                            <li  class="account__items language">
+                                <a id ="btn_lang" class="language__link" href="#">
+                                    <img src="./assets/img/vietnam_flag.jpg" alt="vietnam flag">
+                                    Vi
+                                </a>
+                            </li>
+                            <li class="account__items user__icon "><i class="far fa-envelope"></i></li>
+                            <li class="account__items user__icon "><i class="far fa-bell"></i></li>
+                            <li class="account__items">
+                                <a href="#" class="account__link">
+                                    <img class="account__img" src="./assets/img/user.png" alt="user">
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Drop_box_Language -->
+                        <div id="dropbox" class="dropbox">
+                            <ul class="dropbox__list">
+                                <li class="dropbox__items">
+                                    <a class="dropbox__link" href="#">
+                                        <img src="./assets/img/vietnam_flag.jpg" alt="vietnam flag">
+                                        Vietnamese
+                                    </a>
+                                </li>
+                                <li class="dropbox__items">
+                                    <a class="dropbox__link" href="#">
+                                        <img src="./assets/img/england_flag.png" alt="england flag">
+                                        English
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Main -->
+
+    <div class="modal">
+        <div class="modal__overlay">
+        </div>
+
+        <div class="modal__body">
+            <div class="modal__inner">
+                
+
+                <div class="inner__body">
+                    <div class="grid">
+                        <div class="body__row">
+                            <div class="body__title">
+                                <div class="row">
+                                    <div class="col l-12">
+                                        <div class="inner__head">
+                                            <div class="head__title">
+                                                <img class="logo__img" src="./assets/img/logo.png" alt="logo">
+                                                <h4 class="title__sub">
+                                                    Details Edit
+                                                </h4>
+                                            </div>
+                                            <div class="head__btn">
+                                                <button type="button" class="btn__left">
+                                                    <i class="btn__print">
+                                                        
+                                                    </i>
+                                                    <p>PRINT</p> 
+                                                </button>  
+                                                <button type="button" class="btn__right">
+                                                    <i class="btn__save">
+                                                    </i>
+                                                    <p>SAVE</p> 
+                                                </button>                            
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="body__add">
+                                <div class="row">
+                                    <div class="col l-12 row__search">
+                                        <div class="search__form">
+                                            <label>Tìm kiếm sản phẩm</label>
+                                            <input class="search__items" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col l-12 ">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Mã sản phẩm</th>
+                                                    <th scope="col">Tên sản phẩm</th>
+                                                    <th scope="col">Số lượng đặt</th>
+                                                    <th scope="col">Số lượng nhận</th>
+                                                    <th scope="col">Giá nhập</th>
+                                                    <th scope="col">Thành tiền</th>
+                                                    <th scope="col">Ghi chú</th>
+                                                    <th scope="col">Thao tác</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table__content">
+                                                <tr class="data__content">
+                                                    <td data-lable="itemNo" >ITEM001</td>
+                                                    <td data-lable="itemName" style="text-align: justify;">Samsung dien thoai dang cap quoc te voi gia thanh re </td>
+                                                    <td data-lable="qty" class="detail__input">
+                                                        <input type="number" style="width: 70px;" min="1" value="5">
+                                                    </td>
+                                                    <td data-lable="qtyReceived" 
+                                                    class="detail__input">
+                                                        <input type="number" style="width: 70px;" min="0" value="5">
+                                                    </td>
+                                                    <td data-lable="cost" class="detail__input" >
+                                                        <input type="number" style="width: 100px;" min="1" value="2000000">
+                                                    </td>
+                                                    <td data-lable="amount" class="detail__input" id="detail__amount">
+                                                        <input type="text" style="width: 150px; text-align: right;">
+                                                    </td>
+                                                    <td data-lable="note" class="detail__input">
+                                                        <input type="text" style="width:250px;text-align: left;" value="">
+
+                                                    </td>
+                                                    <td class="btn" style="padding-left: 30px;">
+                                                        <div class="btn__delete">
+                                                            <a href="#" class="btn__link">
+                                                                <i class="btn_icon far fa-trash-alt"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                
+                                                
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

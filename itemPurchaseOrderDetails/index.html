@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets./css/grid.css">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.3">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
@@ -67,70 +67,187 @@
     </div>
     
 <!-- Main -->
-        <div class="modal">
-            <div class="modal__overlay">
+    <div class="modal">
+        <div class="modal__overlay">
 
-            </div>
-            <div class="modal__body">
-                <div class="modal__inner">
-                    <div class="inner__head">
-                        <div class="head__title">
-                            <h4 class="title__sub">
-                                Invoice
-                            </h4>
-                        </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__inner">
+                <!-- <div class="inner__head">
+                    <div class="head__title">
+                        <h4 class="title__sub">
+                            Details Order
+                        </h4>
+                    </div>
                     <div class="head__btn">
                         <button type="button" class="btn__left">
-                            <i class="btn__print">
+                            <i class="btn__print">=-
                             </i>
                             PRINT
                         </button>  
                         <button type="button" class="btn__right">
                             <i class="btn__pdf">
                             </i>
-                            PDF
+                            EDIT
                         </button>                            
                     </div>    
-                    </div>
-                    <div class="inner__body">
+                </div> -->
+                <div class="inner__body">
+                    <div class="grid">
                         <div class="body__row">
-                            <div class="row">
-                                <img class="logo__img" src="./assets/img/logo.png" alt="logo">
-                                <h5 class="mb_1">Hello, name </h5>
-                            </div>
-                            <div class="body__row">
+                            <div class="body__title">
                                 <div class="row">
-                                    <div class="row__table">
-                                        <div class="table">
+                                    <div class="col l-12">
+                                       
+                                        <div class="inner__head">
+                                            <div class="head__title">
+                                                <img class="logo__img" src="./assets/img/logo.png" alt="logo">
+                                                <h4 class="title__sub">
+                                                    Details Order
+                                                </h4>
+                                            </div>
+                                            <div class="head__btn">
+                                                <button type="button" class="btn__left">
+                                                    <i class="btn__print">
+                                                    </i>
+                                                    PRINT
+                                                </button>  
+                                                <button type="button" class="btn__right">
+                                                    <i class="btn__edit">
+                                                    </i>
+                                                    EDIT
+                                                </button>                            
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="body__info">
+                                <div class="row">
+                                    <div class="col l-12">
+                                        <div class="row__title">
+                                            Thông tin đơn hàng
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col l-12">
+                                        <table class="table" colspan="0">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Order Date</th>
-                                                    <th scope="col">Order Status</th>
-                                                    <th scope="col">Order ID</th>
-                                                    <th scope="col">Billing Address</th>
-                                                    <th scope="col">Shipping Address</th>
+                                                    <th scope="col">Ngày đặt</th>
+                                                    <th scope="col">Trạng thái đặt hàng</th>
+                                                    <th scope="col">Mã hoá đơn</th>
+                                                    <th scope="col">Địa chỉ cung cấp</th>
+                                                    <th scope="col">Địa chỉ nhận</th>
                                                 </tr>
                                             </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center;">Mar,17,2021</td>
+                                                    <td style="text-align: center;">PENDING</td>
+                                                    <td style="text-align: center;">0001</td>
+                                                    <td>
+                                                        <p> Box 16122 Collins Street West</p>
+                                                        <p>8007 Australia</p> 
+                                                        <p>Phone: +123 456 7890</p> 
+                                                        <p>Email: demo@Server360.com</p> 
+                                                        <p>Web: www.Server360.com</p> 
+                                                    </td>
+                                                    <td>
+                                                        <p> Box 16122 Collins Street West</p>
+                                                        <p>8007 Australia</p> 
+                                                        <p>Phone: +123 456 7890</p> 
+                                                        <p>Email: demo@Server360.com</p> 
+                                                        <p>Web: www.Server360.com</p> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body__list">
+                                <div class="row">
+                                    <div class="col l-12">
+                                        <div class="row__title">
+                                            Danh sách mặt hàng
                                         </div>
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col l-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Mã sản phẩm</th>
+                                                    <th scope="col">Tên sản phẩm</th>
+                                                    <th scope="col">Số lượng </th>
+                                                    <th scope="col">Đã nhận</th>
+                                                    <th scope="col">Giá nhập</th>
+                                                    <th scope="col">Thành tiền</th>
+                                                    <th scope="col">Ghi chú</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table__content">
+                                                <tr class="data__content">
+                                                    <td data-lable="itemNo" style="text-align: center;">ITEM001</td>
+                                                    <td data-lable="itemName">Samsung dien thoai dang cap quoc te voi gia thanh re </td>
+                                                    <td data-lable="qty" style="text-align: center;">
+                                        
+                                                    </td>
+                                                    <td data-lable="qtyReceived" 
+                                                    style="text-align: center;">
+                                                        
+                                                    </td>
+                                                    <td data-lable="cost" style="text-align: center;" >
+                                                        
+                                                    </td>
+                                                    <td data-lable="amount" style="text-align: center;width: 100px;">
+                                                        10000000
+                                                    </td>
+                                                    <td data-lable="note" >
+                                                        may da bao gom tat ca cac phu kien kem theo
+                                                    </td>
+                                                    
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+
                             </div>
-                            
-                            
-
+                            <footer class="body__footer">
+                                <div class="body__total">
+                                    <div class="row">
+                                        <div class="col l-3 l-o-9 total__row">
+                                            <div class="total__group">
+                                                <div class="total__title">
+                                                    <p>Total:</p>
+                                                </div>
+                                                <div class="total__number">
+                                                    <p>100000000</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
                         </div>
-
                     </div>
-                    
 
                 </div>
+                
 
             </div>
 
-
-            <footer>
-
-            </footer>
         </div>
+
+    </div>
+   
 </body>                
+</html>

@@ -15,7 +15,7 @@
     --second-text-color: #333;
     --primary-color: #4cb050;
     --hover-primary-color: #3d8c40;
-    --second-color: #337ab7;
+    --second-color: #909aa1;
     --hover-second-color: #286090;
     --border-color: #dcdfe8;
     --hover-color: #32BDEA;
@@ -77,7 +77,7 @@ li {
     width: 10%;
 }
 /* modal */
-.modal {
+/* .modal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -89,15 +89,15 @@ li {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(56, 143, 146, 0.4);
     
 }
 .modal__body {
-    width: 800px;
-    height: 1000px;
+    width: 1200px;
+    height: 580px;
     margin: auto;
     margin-top: 120px;
     position: relative;
     z-index: 1;
 
-}
+} */
