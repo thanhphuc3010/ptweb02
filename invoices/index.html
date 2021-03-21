@@ -1,123 +1,38 @@
+<?php
+    require_once('./Config/connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Dashboard Invoices</title>
-    <link rel="stylesheet" href="../base.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="../assets/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
-    <div class="wrapper">
-        <!-- Lưới Grid -->
-        <header>
-            <div class="grid">
-                <div class="navbar">
-                    <div class="search">
-                        <form action="#" class="search__box">
-                            <a class="search__link" href="#"><i class="fas fa-search search__icon"></i></a>
-                            <input type="text" class="search__input" placeholder="Search here...">
-                        </form>
-                    </div>
-                    <div class="account">
-                        <ul class="account__list">
-                            <li class="account__items language">
-                                <a class="language__link" href="#">
-                                    <img src="./vietnam_flag.jpg" alt="vietnam flag">
-                                    Vi
-                                </a>
-                            </li>
-                            <li class="account__items user__icon "><i class="far fa-envelope"></i></li>
-                            <li class="account__items user__icon "><i class="far fa-bell"></i></li>
-                            <li class="account__items">
-                                <a href="#" class="account__link">
-                                    <img class="account__img"src="./user.png" alt="user">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!--Main-->
-        <div class="app">
-            <div class="grid">
-                <div class="container">
-                    <div class="invoices">
-                        <div class="invoices_infor">
-                            <h1 class="invoices_title">
-                                Invoices List
-                            </h1>
-                            <p class="invoices_descript">
-                                Lists
-                            </p>
-                        </div>
-
-                        <button class="invoices_add">
-                            <i class="fas fa-plus"></i>
-                            <p>New Invoices</p>
-                        </button>
-
-                        <button class="invoices_edit">
-                            <i class="fas fa-hammer"></i>
-                            <p>Edit Invoice</p>
-                        </button>
-
-                        <button class="invoices_quote">
-                            <i class="fas fa-share-square"></i>
-                            <p>Quote Invoices</p>
-                        </button>
-
-                        <button class="invoices_delete">
-                            <i class="fas fa-trash-alt"></i>
-                            <p>Delete Invoices</p>
-                        </button>
-
-                        <button class="invoices_print">
-                            <i class="fas fa-print"></i>
-                            <p>Print Invoices</p>
-                        </button>
-                    </div>
-
-                    <div class="content">
-                        <table class="data">
-                            <thead class="data__title">
-                                <tr class="table__title">
-                                    <th class="col_1">Số hóa đơn</th>
-                                    <th class="col_2">Ngày lập hóa đơn</th>
-                                    <th class="col_3">Mã khách hàng</th>
-                                    <th class="col_4">Số tiền phải thanh toán</th>
-                                    <th class="col_5">Ghi chú</th>
-                                    <th class="col_6">Trạng thái</th>
-                                    <th class="col_7"></th>
-                                </tr>
-                            </thead>
-                            <tbody class="data_content">
-                                <tr class="table__content">
-                                    <td class="invoice_id">20210225.1315</td>
-                                    <td class="invoice_date">25/02/2021</td>
-                                    <td class="cust_id">19001919</td>
-                                    <td class="amount_due">500.000</td>
-                                    <td class="notes">Mua hàng</td>
-                                    <td class="status">SOLD</td>
-                                    <td>
-                                        <div class="btn">
-                                            <!--Nút chức năng xem-->
-                                            <div class="btn_view">
-                                                <a href="#" class="view_link">
-                                                    <i class="btn_icon far fa-eye"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <?php
+        if(isset($_GET['page_layout'])) {
+            switch ($_GET['page_layout']) {
+                case 'add':
+                    require_once 'Php_invoice/add_invoice.php';
+                    break;
+                case 'edit':
+                    require_once 'Php_invoice/edit_invoice.php';
+                    break;
+                default :
+                    require_once 'Php_invoice/list.php';
+                    break;
+            }
+        } else 
+        {
+            require_once 'Php_invoice/list.php';
+        }
+    ?>
+</body>
+</html>

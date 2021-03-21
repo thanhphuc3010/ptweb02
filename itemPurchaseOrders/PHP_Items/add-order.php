@@ -50,9 +50,9 @@
     <div class="main">
         <div class="grid wide-order">
             <div class="row">
-                <div class="col l-9">
+                <div class="col l-9 c-12">
                     <div class="row">
-                        <div class="col l-12 search">
+                        <div class="col l-12 c-12 search">
                             <div class="form-group">
                                 <input class="search-products" type="text" name="location">
                                 <label>Tìm kiếm sản phẩm của bạn:</label>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <!-- Table -->
-                        <div class="col l-12 table-orders">
+                        <div class="col l-12 c-12 table-orders">
                             <div class="purorder">
                                 <table class="content-table orders" id="thetable">
                                     <thead class="data__title">
@@ -86,27 +86,58 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-3">
+                <div class="col l-3 c-12">
                      <div class="row">
-                        <div class="col l-12">
+                        <div class="col l-12 c-12">
                             <div class="form-group">
                                 <input id="poNumber" type="text" name="location" required>
-                                <label>Mã đơn hàng</label>
+                                <label>Mã đơn hàng <span>*</span></label>
                             </div>
                         </div>
-                        <div class="col l-12">
-                            <label style="font-size:var(--medium-font-size);padding-bottom:5px;">Trạng thái đơn hàng</label>
+                        <div class="col l-12 c-12">
+                            <div class="form-group">
+                                <input class="datetime" id="orderDate" placeholder="Hôm nay"  name="orderDate" required>
+                                <label>Ngày đặt hàng<span>*</span></label>
+                            </div>
+                        </div>
+                        <div class="col l-12 c-12">
+                            <div class="form-group">
+                                <input  class="datetime" id="receiveDate" name="receiveDate" required>
+                                <label>Ngày dự kiến nhận<span>*</span></label>
+                            </div>
+                        </div>
+                        <div class="col l-12 c-12">
+                            <div class="form-group">
+                                <input id="staffId" type="text" name="staffId" required>
+                                <label>Mã nhân viên<span>*</span></label>
+                                <div class="staff">
+                                    <ul class="staff-list ">
+                                        <li class="staff-items">
+                                            Phạm Thanh Phúc
+                                        </li>
+                                        <li class="staff-items">
+                                            Phạm Thanh Phúc
+                                        </li>
+                                        <li class="staff-items">
+                                            Phạm Thanh Phúc
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col l-12 c-12">
+                            <label style="font-size:var(--medium-font-size);padding-bottom:5px;">Trạng thái thanh toán</label>
                             <div class="status" id="status-list">
                                 <div class="status-select">
-                                    <span class="status-selected">Pending</span>
+                                    <span class="status-selected" id ="billingStatus">Has_Bill</span>
                                     <i class="fa fa-angle-down status-caret"></i>
                                 </div>
                                 <ul class="status-list">
-                                    <li class="status-item" data-value="Pending">
-                                    Pending
+                                    <li class="status-item" data-value="Has_Bill">
+                                    Has_Bill
                                     </li>
-                                    <li class="status-item" data-value="Open">
-                                    Open
+                                    <li class="status-item" data-value="No_Bill">
+                                    No_Bill
                                     </li>
                                     <li class="status-item" data-value="Done">
                                     Done
@@ -114,40 +145,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col l-12">
+                        <div class="col l-12 c-12">
                             <div class="form-group">
-                                <input class="datetime"id="orderDate" placeholder="Hôm nay"  name="orderDate" required>
-                                <label>Ngày đặt hàng</label>
-                            </div>
-                        </div>
-                        <div class="col l-12">
-                            <div class="form-group">
-                                <input  class="datetime" id="receiveDate" name="receiveDate" required>
-                                <label>Ngày dự kiến nhận</label>
-                            </div>
-                        </div>
-                        <div class="col l-12">
-                            <div class="form-group">
-                                <input id="staffId" type="text" name="staffId" required>
-                                <label>Mã nhân viên</label>
-                                <div class="staff">
-                                <ul class="staff-list ">
-                                    <li class="staff-items">
-                                        Phạm Thanh Phúc
-                                    </li>
-                                    <li class="staff-items">
-                                        Phạm Thanh Phúc
-                                    </li>
-                                    <li class="staff-items">
-                                        Phạm Thanh Phúc
-                                    </li>
-                                </ul>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="col l-12">
-                            <div class="form-group">
-                                <input type="text" name="paymentTermId">
+                                <input type="text" name="paymentTermId" id="paymentTermId">
                                 <label>Điều khoản thanh toán</label>
                             </div>
                         </div>
@@ -157,69 +157,82 @@
                 
             </div>
             <div class="row">
-                <div class="col l-9">
-                    <div class="col l-12">
+                <div class="col l-9 c-12">
+                    <div class="col l-12 c-12">
                         <div id="supplier" class="row">
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input id="supplierName"type="text" name="supplierName">
-                                    <label>Tên nhà cung cấp</label>
+                                    <input id="supName"type="text" name="supplierName">
+                                    <label>Tên nhà cung cấp<span>*</span></label>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="supplierId">
-                                    <label>Mã nhà cung cấp</label>
+                                    <input type="text" name="supplierId" id="supplierId">
+                                    <label>Mã nhà cung cấp<span>*</span></label>
+                                    <div class="supplier">
+                                    <ul class="supplier-list ">
+                                        <li class="supplier-items">
+                                            Phạm Thanh Phúc
+                                        </li>
+                                        <li class="supplier-items">
+                                            Phạm Thanh Phúc
+                                        </li>
+                                        <li class="supplier-items">
+                                            Phạm Thanh Phúc
+                                        </li>
+                                    </ul>
+                                </div>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="phone">
-                                    <label>Số điện thoại</label>
+                                    <input type="text" name="phone" id="supPhone">
+                                    <label>Số điện thoại<span>*</span></label>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="email" name="email">
+                                    <input type="email" name="email" id="supEmail">
                                     <label>Email</label>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="address">
+                                    <input type="text" name="address" id="supAddress">
                                     <label>Địa chỉ</label>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="city">
+                                    <input type="text" name="city" id="supCity">
                                     <label>Tỉnh</label>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="county">
+                                    <input type="text" name="county" id="supCounty">
                                     <label>Huyện</label>
                                 </div>
                             </div>
-                            <div class="col l-3">
+                            <div class="col l-3 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="remark">
+                                    <input type="text" name="remark" id="orderRemark">
                                     <label>Ghi chú</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col l-3">
+                <div class="col l-3 c-12">
                     <div class="row">
-                            <div class="col l-12">
+                            <div class="col l-12 c-12">
                                 <div class="form-group">
-                                    <input type="text" name="amount">
-                                    <label>Thành tiền</label>
+                                    <input type="text" name="amount" required readonly id="totalAmount">
+                                    <label>Tổng tiền</label>
                                 </div>
                             </div>
-                            <div class="col l-6">
+                            <div class="col l-4 c-12">
                                 <div class="btn__genernal btn-orders">
                                     <button type="button" onclick="window.location.href='index.php?page_layout=list-orders';" class="items__add" id="btn-back">
                                         <i class="fas fa-arrow-left items__icon"></i>
@@ -227,11 +240,19 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col l-6">
+                            <div class="col l-4 c-12">
                                 <div class="btn__genernal btn-orders">
-                                    <button type="button"onclick="window.location.href='index.php?page_layout=list-orders';" class="items__add" id="add-orders">
+                                    <button type="button" onclick="" class="items__add" id="save-order">
+                                    <i class="fas fa-save items__icon"></i>
+                                        <p>Lưu</p>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col l-4 c-12">
+                                <div class="btn__genernal btn-orders">
+                                    <button type="button" onclick="" class="items__add" id="add-orders">
                                         <i class="fas fa-plus items__icon "></i>
-                                        <p>Tạo mới</p>
+                                        <p>Đặt hàng</p>
                                     </button>
                                 </div>
                             </div>
@@ -242,11 +263,13 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 <script src="./main.js"> </script>
-<script type="text/javascript" src="http://github.com/sauerc/jAutoCalc/raw/master/jAutoCalc.js"></script>
 <script>
-    $('.datetime').datetimepicker();
+    // Datetime picker and set date current
+    $(document).ready(function() {
+        $('.datetime').datetimepicker();
+    });
 
     window.addEventListener("load", function () {
         const statusItems = document.querySelectorAll(

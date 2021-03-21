@@ -14,7 +14,7 @@ while($row_add = mysqli_fetch_assoc($query_items)) { ?>
             <input name="qty" class="quantity" class="input-data" type="text" min="1" value="1">
         </td>
         <td class="orders-input">
-            <input name="cost"class="cost" type="text" min="1" value="1">
+            <input name="cost" class="cost" type="text" min="1" value="1">
         </td>
         <td class="orders-input" id = "orders-amount" style="text-align: right;">
             <input name="amount" class="amount" type="text">

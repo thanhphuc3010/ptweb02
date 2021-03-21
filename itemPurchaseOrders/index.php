@@ -30,7 +30,7 @@
                     require_once 'PHP_Items/edit.php';
                     break;
                 case 'delete':
-                    require_once 'PHP_Items/delete.php';
+                    require_once 'PHP_Items/delete-orders.php';
                     break;
                 case 'view':
                     require_once 'PHP_Items/view.php';

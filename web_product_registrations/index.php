@@ -1,7 +1,6 @@
 <?php
     require_once('./config/dbconnect.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

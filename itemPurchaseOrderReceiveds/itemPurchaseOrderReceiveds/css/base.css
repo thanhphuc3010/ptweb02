@@ -1,0 +1,86 @@
+/* IMPORT FONT FROM GOOGLE FONT */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+    /* COLOR */
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #110a57;
+    --second-text-color: #333;
+    --primary-color:#4cb050 ;
+    --hover-primary-color: #3d8c40;
+    --second-color:#337ab7;
+    --hover-second-color:#286090;
+    --border-color: #dcdfe8;
+    --hover-color:#32BDEA;
+
+    /* FONT SIZE */
+
+    --primary-font: Helvetica, Arial, sans-serif;
+    --normal-font-size: 1.4rem;
+    --medium-font-size: 1.6rem;
+    --title-font-size: 2rem;
+    --big-font-size: 2.2rem;  
+
+}
+
+/* RESET CSS */
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.col_1 {
+    width: 20%;
+}
+
+.col_1-2 {
+    width: 15%;
+}
+
+.col_2 {
+    width: 20%;
+}
+
+.col_3 {
+    width: 30%;
+}
+
+.col_4 {
+    width: 40%;   
+}
+
+.col_5 {
+    width:50%;
+}
+
+.col_6 {
+    width: 60%;
+}
+
+.col_7 {
+    width: 70%;
+}
+
+.col_8 {
+    width: 80%;
+}
+
