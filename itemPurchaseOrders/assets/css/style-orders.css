@@ -286,6 +286,7 @@ table {
 }
 
 .btn__link {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -718,13 +719,6 @@ span {
     border-color: #32BDEA;
 }
 
-#orders-amount input {
-    width: 100%;
-    margin: 0;
-}
-
-
-
 
 /* CSS button Orders */
 /* CSS button Orders */
@@ -923,6 +917,11 @@ span {
 }
 
 
+input.cost, input.amount {
+    width: 130px;
+}
+
+
 /* STYLE TỔNG TIỀN */
 .form-group #totalAmount {
     min-height: 48.8px;
@@ -933,4 +932,16 @@ span {
     font-size: var(--big-font-size);
     color: red;
     text-align: right;
+}
+
+
+.orders__description {
+    line-height: 1.5;
+    width: 340px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }

@@ -1,4 +1,10 @@
+<?php
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+	header("Cache-Control: post-check=0, pre-check=0", false);
+	header("Pragma: no-cache");
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <div class="wrapper">
     <header>
         <div class="grid">
@@ -73,7 +79,7 @@
                                             <th class="col_2">Tên sản phẩm</th>
                                             <th class="">Số lượng đặt</th>
                                             <th class="">Giá nhập</th>
-                                            <th class="col_1-2" style="text-align: right;">Thành tiền</th>
+                                            <th class="col_1-2" ">Thành tiền</th>
                                             <th class="col_2">Ghi chú</th>
                                             <th class="">Thao tác</th>
                                         </tr>
@@ -109,6 +115,7 @@
                         <div class="col l-12 c-12">
                             <div class="form-group">
                                 <input id="staffId" type="text" name="staffId" required>
+                                <input id="id-submit" type="hidden" name="staffId" required>
                                 <label>Mã nhân viên<span>*</span></label>
                                 <div class="staff">
                                     <ul class="staff-list ">
@@ -169,6 +176,7 @@
                             <div class="col l-3 c-12">
                                 <div class="form-group">
                                     <input type="text" name="supplierId" id="supplierId">
+                                    <input type="hidden" id="supId-submit">
                                     <label>Mã nhà cung cấp<span>*</span></label>
                                     <div class="supplier">
                                     <ul class="supplier-list ">
@@ -242,7 +250,7 @@
                             </div>
                             <div class="col l-4 c-12">
                                 <div class="btn__genernal btn-orders">
-                                    <button type="button" onclick="" class="items__add" id="save-order">
+                                    <button type="button" class="items__add" id="save-order">
                                     <i class="fas fa-save items__icon"></i>
                                         <p>Lưu</p>
                                     </button>
@@ -250,7 +258,7 @@
                             </div>
                             <div class="col l-4 c-12">
                                 <div class="btn__genernal btn-orders">
-                                    <button type="button" onclick="" class="items__add" id="add-orders">
+                                    <button type="button" class="items__add" id="add-orders">
                                         <i class="fas fa-plus items__icon "></i>
                                         <p>Đặt hàng</p>
                                     </button>
@@ -263,6 +271,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 <script src="./main.js"> </script>
 <script>
@@ -304,3 +313,7 @@
         );
     });
 </script>
+
+<?php
+    mysqli_close($connect);
+?>

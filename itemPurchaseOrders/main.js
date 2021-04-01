@@ -1,3 +1,21 @@
+function separateAtThousands(num) {
+    var numArray = [],
+        numStr = String(num);
+    while (num >= 1000) {
+      // prepend next set of 3 digits to numArray
+      numArray.unshift(Math.round(((num / 1000) - Math.floor(num / 1000)) * 1000));
+      // ensure leading 0's are included in numbers like 1,005
+      while (String(numArray[0]).length < 3) {
+        numArray[0] = '0' + numArray[0];
+      }
+      // update num so no infinite loop
+      num = Math.floor(num / 1000);
+    }
+    // add last chunk of digits
+    numArray.unshift(num);
+    return numArray.join(',');
+  }
+
 $(document).ready(function () {
     // Tìm kiếm sản phẩm
     $(".search-products").keyup(function() {
@@ -18,6 +36,7 @@ $(document).ready(function () {
             var id = $(this).children().val();
             $.post("./PHP_Items/add-items-to-order.php", {id: id}, function (data) {
                 $(".data_content").append(data);
+                $('.cost, .amount').mask("000,000,000,000,000", {reverse: true});
             });
             $(".dropdown").fadeOut();
             $(".search-products").val("");
@@ -53,10 +72,9 @@ $(document).ready(function () {
 
     $(document).on("click",".staff-items",function() {
         $("#staffId").val($(this).text());
-        //var a = $('#staff--id').val();
-        //alert(a)
+        var idStaff = $(this).children().val();
+        $('#id-submit').val(idStaff);
         $(".staff").fadeOut();
-        
     });
 
 
@@ -76,16 +94,17 @@ $(document).ready(function () {
     });
 
     $(document).on("click",".supplier-items",function() {
-        $("#supplierId").val($(this).text());
+        var textShow = $.trim($(this).text());
+        $("#supplierId").val(textShow);
         $(".supplier").fadeOut();
-        $('#supName').val($('#supplierName').val());
-        $('#supPhone').val($('#sup-phone').val());
-        $('#supEmail').val($('#sup-email').val());
-        $('#supAddress').val($('#sup-address').val());
-        $('#supCity').val($('#sup-city').val());
-        $('#supCounty').val($('#sup-county').val());
+        $('#supName').val($(this).children('.supplierName').val());
+        $('#supPhone').val($(this).children('.sup-phone').val());
+        $('#supEmail').val($(this).children('.sup-email').val());
+        $('#supAddress').val($(this).children('.sup-address').val());
+        $('#supCity').val($(this).children('.sup-city').val());
+        $('#supCounty').val($(this).children('.sup-county').val());
+        $('#supId-submit').val($(this).children('.sup-id').val())
     });
-
 
 
     // ADD ORDER => STATUS = "OPEN"
@@ -107,18 +126,18 @@ $(document).ready(function () {
             var receiveDate = $("#receiveDate").val();
             var poNumber = $("#poNumber").val();
             var status = 'OPEN';
-            var staffId = $('#staff--id').val();
+            var staffId = $('#id-submit').val();
             var paymentTermId =$('#paymentTermId').val();
-            var supplierId = $('#sup-id').val();
+            var supplierId = $('#supId-submit').val();
             var billingStatus = $('#billingStatus').text();
-            var totalAmount = $('#totalAmount').val();
+            var totalAmount = parseFloat($('#totalAmount').val().replace(/,/g, ''));
             var orderRemark = $('#orderRemark').val();
             var detail = [];
             $("tbody.data_content tr").each(function () {
                 var id = $(this).attr('items-id');
                 var quantity = $(this).find('.quantity').val();
-                var amount = $(this).find('.amount').val();
-                var cost = $(this).find('.cost').val();
+                var amount = parseFloat($(this).find('.amount').val().replace(/,/g, ''));
+                var cost = parseFloat($(this).find('.cost').val().replace(/,/g, ''));
                 detail.push(
                     {
                         id: id, 
@@ -173,18 +192,18 @@ $(document).ready(function () {
             var receiveDate = $("#receiveDate").val();
             var poNumber = $("#poNumber").val();
             var status = 'PENDING';
-            var staffId = $('#staff--id').val();
+            var staffId = $('#id-submit').val();
             var paymentTermId =$('#paymentTermId').val();
-            var supplierId = $('#sup-id').val();
+            var supplierId = $('#supId-submit').val();
             var billingStatus = $('#billingStatus').text();
-            var totalAmount = $('#totalAmount').val();
+            var totalAmount = parseFloat($('#totalAmount').val().replace(/,/g, ''));
             var orderRemark = $('#orderRemark').val();
             var detail = [];
             $("tbody.data_content tr").each(function () {
                 var id = $(this).attr('items-id');
                 var quantity = $(this).find('.quantity').val();
-                var amount = $(this).find('.amount').val();
-                var cost = $(this).find('.cost').val();
+                var amount = parseFloat($(this).find('.amount').val().replace(/,/g, ''));
+                var cost = parseFloat($(this).find('.cost').val().replace(/,/g, ''));
                 detail.push(
                     {
                         id: id, 
@@ -224,23 +243,27 @@ $(document).ready(function () {
     $(document).on('keyup','#thetable input.quantity, #thetable input.cost',function(){
         var $row = $(this).closest('tr');
         var quantity = parseInt($row.find('.quantity').val());
-        var cost = parseInt($row.find('.cost').val());
+        var cost = parseInt($row.find('.cost').cleanVal());
         if(isNaN(cost)) {
             var answer = quantity;
         } else {
             answer = quantity * cost;
         }
+        answer = separateAtThousands(answer);
         $row.find('.amount').val(answer);
     });
-
 
     $(document).on('keyup','#thetable input.amount',function(){
         var $row = $(this).closest('tr');
         $row.find('.cost').val(0);
         var quantity = parseInt($row.find('.quantity').val());
-        var amount = parseInt($row.find('.amount').val());
-
-        var answer = Math.round( amount / quantity);
+        var amount = parseInt($row.find('.amount').cleanVal());
+        if(isNaN(amount)) {
+            var answer = quantity;
+        } else {
+            answer = Math.round( amount / quantity);
+        }
+        answer = separateAtThousands(answer);
         $row.find('.cost').val(answer);
     });
 
@@ -251,24 +274,22 @@ $(document).ready(function () {
         var sum = 0;
         $('.amount').each(function() {
             var num = $(this).val();
-            if(num !== 0) {
+            num = num.replace(/,/g, '');
+            if(num !== 0 && num != '') {
                 sum += parseFloat(num);
+            } else {
+                sum = 0;
             }
         });
-        $('#totalAmount').val(sum);
+        sumFormat = separateAtThousands(sum);
+        $('#totalAmount').val(sumFormat);        
     }
+
+    
 
     $(document).on('keyup','#thetable input.quantity, #thetable input.cost,#thetable input.amount',function() {
         totalAmount();
     });
-
-    $('#add-orders').click(function() { 
-        
-      });
-
-
-
-
 });
 
 

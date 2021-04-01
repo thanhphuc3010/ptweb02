@@ -32,11 +32,8 @@
                 case 'delete':
                     require_once 'PHP_Items/delete-orders.php';
                     break;
-                case 'view':
-                    require_once 'PHP_Items/view.php';
-                    break;
                 default:
-                    require_once 'PHP_Items/list.php';
+                    require_once 'PHP_Items/list-orders.php';
                     break;
             }
         } else{
@@ -45,3 +42,5 @@
     ?>
 </body>
 </html>
+
+ 

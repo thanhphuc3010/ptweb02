@@ -9,7 +9,7 @@
 <?php 
     if($num > 0) {
         while($row_items = mysqli_fetch_assoc($query)) { ?>
-            <li class="staff-items"><?php echo $row_items['staffNumber']." - ".$row_items['fullname'];?><input type="hidden"  id="staff--id" value="<?php echo $row_items['staffId'] ?>"></li>
+            <li class="staff-items"><?php echo $row_items['staffNumber']." - ".$row_items['fullname'];?><input type="hidden"  class="staff--id" value="<?php echo $row_items['staffId'] ?>"></li>
             
         <?php
         }

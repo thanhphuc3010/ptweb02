@@ -8,15 +8,17 @@
 
 <?php 
     if($num > 0) {
-        while($row_sup = mysqli_fetch_assoc($query)) { ?>
-            <li class="supplier-items"><?php echo $row_sup['supplierId'] ." - ".$row_sup['supplierNumber'];?></li>
-            <input type="hidden" id="supplierName" value="<?php echo $row_sup['supplierName'];?>">
-            <input type="hidden" id="sup-id" value="<?php echo $row_sup['supplierId'];?>">
-            <input type="hidden" id="sup-phone" value="<?php echo $row_sup['phone'];?>">
-            <input type="hidden" id="sup-email" value="<?php echo $row_sup['email'];?>">
-            <input type="hidden" id="sup-address" value="<?php echo $row_sup['address'];?>">
-            <input type="hidden" id="sup-city" value="<?php echo $row_sup['city'];?>">
-            <input type="hidden" id="sup-county" value="<?php echo $row_sup['county'];?>">
+        while($row_sup = mysqli_fetch_assoc($query)) {?>
+            <li class="supplier-items">
+                <?php echo $row_sup['supplierId'] ." - ".$row_sup['supplierNumber'];?>
+                <input type="hidden" class="supplierName" value="<?php echo $row_sup['supplierName'];?>">
+                <input type="hidden" class="sup-id" value="<?php echo $row_sup['supplierId'];?>">
+                <input type="hidden" class="sup-phone" value="<?php echo $row_sup['phone'];?>">
+                <input type="hidden" class="sup-email" value="<?php echo $row_sup['email'];?>">
+                <input type="hidden" class="sup-address" value="<?php echo $row_sup['address'];?>">
+                <input type="hidden" class="sup-city" value="<?php echo $row_sup['city'];?>">
+                <input type="hidden" class="sup-county" value="<?php echo $row_sup['county'];?>">
+            </li>
         <?php
         }
     } else { ?>

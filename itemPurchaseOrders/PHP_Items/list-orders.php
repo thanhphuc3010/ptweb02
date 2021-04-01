@@ -1,5 +1,8 @@
 <?php
-    $sql = "SELECT `orderDate`,`poNumber`,`supplierId`,`staffId`, `remark`, `status`, `billingStatus` FROM `itempurchaseorders` ";
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    $sql = "SELECT `orderDate`,`poId`,`poNumber`,a.supplierId, b.supplierNumber,`staffId`, a.remark, a.status, a.billingStatus FROM itempurchaseorders a, suppliers b WHERE a.supplierId = b.supplierId";
     $query = mysqli_query($connect,$sql);
 ?>
 
@@ -77,13 +80,13 @@
                     </div>
 
                     <div class="content">
-                        <table class="content-table">
+                        <table class="content-table" id="content-table">
                             <thead class="data__title">
                                 <tr class="table__title">
                                     <th class="col_1">Ngày đặt hàng</th>
                                     <th class="col_1">Mã đơn hàng</th>
-                                    <th class="col_1">Mã nhân viên</th>
-                                    <th class="col_1">Mã nhà cung cấp</th>
+                                    <th class="col_1-2">Mã nhân viên</th>
+                                    <th class="col_1-2">Mã nhà cung cấp</th>
                                     <th class="col_3">Mô tả</th>
                                     <th class="col_1">Trạng thái đơn hàng</th>
                                     <th class="col_3">Trạng thái hóa đơn</th>
@@ -97,14 +100,12 @@
                                         <td class="orders--Date"><?php echo $row['orderDate']; ?> </td>
                                         <td class="orders--poNumber"><?php echo $row['poNumber']; ?></td>
                                         <td class="orders--staffId"><?php echo $row['staffId']; ?> </td>
-                                        <td class="orders--supplierId"><?php echo $row['supplierId']; ?></td>
-                                        <td>
-                                            <p class="orders__description">
-                                            <?php echo $row['remark']; ?>
-                                            </p>
+                                        <td class="orders--supplierId"><?php echo $row['supplierNumber']; ?></td>
+                                        <td style="text-align:justify">
+                                            <p class="orders__description"><?php echo $row['remark']; ?></p>
                                         </td>
-                                        <td>
-                                            <div  class="btn-style orders--status"><?php echo $row['status']; ?></div>
+                                        <td class="status-check">
+                                            <div class="btn-style orders--status"><?php echo $row['status']; ?></div>
                                         </td>
                                         <td>
                                             <div class="btn-style orders--billingStatus"><?php echo $row['billingStatus']; ?></div>
@@ -117,12 +118,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="btn__edit">
-                                                    <a href="index.php?page_layout=edit&id=<?php echo $row['poNumber'];?>" class="btn__link">
+                                                    <a onclick="Del('<?php echo $row['poNumber'];?>','<?php echo $row['status'];?>')" class="btn__link">
                                                         <i class="btn_icon fas fa-pencil-alt"></i>
                                                     </a>
                                                 </div>
                                                 <div class="btn__delete">
-                                                    <a onclick="return Del('<?php echo $row['poNumber'];?>')" href="index.php?page_layout=delete&id=<?php echo $row['poNumber'];?>" class="btn__link">
+                                                    <a onclick="return Del('<?php echo $row['poNumber'];?>','<?php echo $row['status'];?>')" href="index.php?page_layout=delete&id=<?php echo $row['poId'];?>" class="btn__link">
                                                         <i class="btn_icon far fa-trash-alt"></i>
                                                     </a>
                                                 </div>
@@ -137,17 +138,17 @@
                     </div>
                     <!-- Pagination -->
                     <ul class="pagi">
-                            <li class="pagi__item pagi__action pagi__prev is-disabled">
-                            <i class="pagi__icon fal fa-angle-left"></i>
-                            </li>
-                            <li class="pagi__item is-active">1</li>
-                            <li class="pagi__item">2</li>
-                            <li class="pagi__item">3</li>
-                            <li class="pagi__item">4</li>
-                            <li class="pagi__item">5</li>
-                            <li class="pagi__item pagi__action pagi__next">
-                            <i class="pagi__icon fal fa-angle-right"></i>
-                            </li>
+                        <li class="pagi__item pagi__action pagi__prev is-disabled">
+                        <i class="pagi__icon fal fa-angle-left"></i>
+                        </li>
+                        <li class="pagi__item is-active">1</li>
+                        <li class="pagi__item">2</li>
+                        <li class="pagi__item">3</li>
+                        <li class="pagi__item">4</li>
+                        <li class="pagi__item">5</li>
+                        <li class="pagi__item pagi__action pagi__next">
+                        <i class="pagi__icon fal fa-angle-right"></i>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -171,8 +172,19 @@
             </div>
         </footer>
     </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+    <script>
 
-    <script >
+        $(document).ready(function() {
+            $(".search__input").keyup(function() {
+                var txt = $(".search__input").val();
+                $.post("./PHP_Items/search-order.php", {data: txt}, function(data) {
+                    $(".data_content").html(data);
+                });
+            });
+        });
         document.getElementById("btn_lang").addEventListener("click",function()
         {
             var drbox = document.getElementById("dropbox");
@@ -187,9 +199,10 @@
         })
 
 
-        function Del(name) {
-            return confirm("Bạn có chắc chắn muốn xoá đơn hàng: " + name + " không?");
+        function Del(name,status) {
+            if(status === 'DONE') {
+                alert('Đơn hàng đã ở trạng thái Hoàn thành. Bạn không thể xoá đơn hàng này');
+                return false;
+            } else return confirm("Bạn có chắc chắn muốn xoá đơn hàng: " + name + " không?");
         }
-
-       
     </script>
