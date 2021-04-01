@@ -95,7 +95,7 @@
                                 <i class="fas fa-plus items__icon "></i>
                                 <p>Tạo mới</p>
                             </button>
-                            <button class="items__add">
+                            <button class="items__add" onclick="window.location.href='./PHP_Items/ex-pdf.php';">
                                 <i class="fas fa-download items__icon"></i>
                                 <p>In danh sách</p>
                             </button>
